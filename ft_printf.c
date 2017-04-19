@@ -18,17 +18,23 @@ void	print_width(size_t minus, t_pf *pf)
 
 	width = pf->width;
 	pf->width = 0;
-	width -= minus;pwd
+	width -= minus;
 	if (pf->sharp)
 	{
 		pf->sharp == 2 ? width -= 1 : 0;
-		pf->sharp == 3 || pf->sharp == 4 ? width -= 2 : 0;
+		(pf->sharp == 3 || pf->sharp == 4) ? width -= 2 : 0;
+	}
+	if (*pf->str == '-')
+	{
+		ft_putchar('-');
+		pf->str++;
 	}
 	while (width != 0)
 	{
 		pf->zero ? ft_putchar('0') : ft_putchar(' ');
 		width--;
 	}
+	pf->zero = 0;
 }
 
 void	print_int(va_list fm, t_pf *pf, int key, int x)
@@ -45,22 +51,25 @@ void	print_int(va_list fm, t_pf *pf, int key, int x)
 		ft_putchar(' ');
 		pf->space = 0;
 	}
-	print_width(ft_strlen(pf->str), pf);
+	pf->width ? print_width(ft_strlen(pf->str), pf) : 0;
 	pf->sharp == 2 ? ft_putchar('0') : 0;
 	pf->sharp == 3 ? ft_putstr("0x") : 0;
 	pf->sharp == 4 ? ft_putstr("0X") : 0;
+	pf->sharp = 0;
 	ft_putstr(pf->str);
 }
 
 void	print_c(va_list fm, t_pf pf)
 {
 	pf.c = va_arg(fm, int);
+	pf.width ? print_width(1, &pf) : 0;
 	ft_putchar(pf.c);
 }
 
 void	print_s(va_list fm, t_pf pf)
 {
 	pf.s = va_arg(fm, char *);
+	pf.width ? print_width(ft_strlen(pf.s), &pf) : 0;
 	ft_putstr(pf.s);
 }
 
