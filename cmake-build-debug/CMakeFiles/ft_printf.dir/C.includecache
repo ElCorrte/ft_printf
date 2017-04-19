@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.c
+ft_printf.h
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
+
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
+stdarg.h
+-
+unistd.h
+-
+libft/libft.h
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/libft/libft.h
+
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/libft/libft.h
+string.h
+-
+
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c
+stdio.h
+-
+
