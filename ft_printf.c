@@ -24,17 +24,27 @@ void	print_width(size_t minus, t_pf *pf)
 		pf->sharp == 2 ? width -= 1 : 0;
 		(pf->sharp == 3 || pf->sharp == 4) ? width -= 2 : 0;
 	}
-	if (*pf->str == '-')
+	if (*pf->str == '-' && !pf->dash)
 	{
 		ft_putchar('-');
 		pf->str++;
 	}
 	while (width != 0)
 	{
-		pf->zero ? ft_putchar('0') : ft_putchar(' ');
+		if (!pf->dash)
+			pf->zero ? ft_putchar('0') : ft_putchar(' ');
+		else
+			ft_putchar(' ');
 		width--;
 	}
 	pf->zero = 0;
+}
+
+void	print_dash(t_pf *pf)
+{
+	ft_putstr(pf->str);
+	print_width(ft_strlen(pf->str), pf);
+	pf->dash = 0;
 }
 
 void	print_int(va_list fm, t_pf *pf, int key, int x)
@@ -51,12 +61,13 @@ void	print_int(va_list fm, t_pf *pf, int key, int x)
 		ft_putchar(' ');
 		pf->space = 0;
 	}
-	pf->width ? print_width(ft_strlen(pf->str), pf) : 0;
+	if (!pf->dash)
+		pf->width ? print_width(ft_strlen(pf->str), pf) : 0;
 	pf->sharp == 2 ? ft_putchar('0') : 0;
 	pf->sharp == 3 ? ft_putstr("0x") : 0;
 	pf->sharp == 4 ? ft_putstr("0X") : 0;
 	pf->sharp = 0;
-	ft_putstr(pf->str);
+	(pf->dash && pf->width) ? print_dash(pf) : ft_putstr(pf->str);
 }
 
 void	print_c(va_list fm, t_pf pf)
@@ -95,13 +106,17 @@ void	ft_check_sp(char sp, va_list fm, t_pf *pf)
 	}
 }
 
-void	ft_check_fl(char fl, va_list fm, t_pf *pf)
+void	ft_check_fl(const char **fl, t_pf *pf)
 {
-	fl == '#' ? pf->sharp = 1 : 0;
-	fl == '0' ? pf->zero = 1 : 0;
-	fl == '-' ? pf->dash = 1 : 0;
-	fl == '+' ? pf->plus = 1 : 0;
-	fl == ' ' ? pf->space = 1 : 0;
+	while (!ft_isdigit(**fl) || **fl == '0')
+	{
+		**fl == '0' ? pf->zero = 1 : 0;
+		**fl == '#' ? pf->sharp = 1 : 0;
+		**fl == '-' ? pf->dash = 1 : 0;
+		**fl == '+' ? pf->plus = 1 : 0;
+		**fl == ' ' ? pf->space = 1 : 0;
+		(*fl)++;
+	}
 }
 
 void	len_width(int width, t_pf *pf)
@@ -128,23 +143,17 @@ void 	ft_check_form(const char *form, va_list fm)
 			ft_putchar(*form);
 			form++;
 		}
-		if (ft_strchr(pf.f_l, *(form + 1)) && *form)
+		form++;
+		if (ft_strchr(pf.f_l, *form) && *form)
+			ft_check_fl(&form,&pf);
+		if (ft_isdigit(*form) && *form)
 		{
-			ft_check_fl(*(form + 1), fm, &pf);
-			form++;
-		}
-		if (ft_isdigit(*(form + 1)) && *form)
-		{
-			form++;
 			pf.width = ft_atoi(form);
 			len_width(pf.width, &pf);
-			form += --pf.len_width;
+			form += pf.len_width;
 		}
-		if (ft_strchr(pf.s_p, *(form + 1)) && *form)
-		{
-			ft_check_sp(*(form + 1), fm, &pf);
-			form++;
-		}
+		if (ft_strchr(pf.s_p, *form) && *form)
+			ft_check_sp(*form, fm, &pf);
 		form++;
 	}
 }
