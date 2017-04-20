@@ -24,7 +24,7 @@ void	print_width(size_t minus, t_pf *pf)
 		pf->sharp == 2 ? width -= 1 : 0;
 		(pf->sharp == 3 || pf->sharp == 4) ? width -= 2 : 0;
 	}
-	if (*pf->str == '-' && !pf->dash)
+	if (*pf->str == '-' && !pf->dash && pf->zero != 0)
 	{
 		ft_putchar('-');
 		pf->str++;
@@ -106,19 +106,6 @@ void	ft_check_sp(char sp, va_list fm, t_pf *pf)
 	}
 }
 
-void	ft_check_fl(const char **fl, t_pf *pf)
-{
-	while (!ft_isdigit(**fl) || **fl == '0')
-	{
-		**fl == '0' ? pf->zero = 1 : 0;
-		**fl == '#' ? pf->sharp = 1 : 0;
-		**fl == '-' ? pf->dash = 1 : 0;
-		**fl == '+' ? pf->plus = 1 : 0;
-		**fl == ' ' ? pf->space = 1 : 0;
-		(*fl)++;
-	}
-}
-
 void	len_width(int width, t_pf *pf)
 {
 	pf->len_width = 0;
@@ -130,12 +117,46 @@ void	len_width(int width, t_pf *pf)
 	}
 }
 
-void 	ft_check_form(const char *form, va_list fm)
+void	skip_zero(const char **fl, t_pf *pf)
+{
+	**fl == '0' ? pf->zero = 1 : 0;
+	while (**fl == '0' && **fl)
+		(*fl)++;
+}
+
+void	ft_check_fl(const char **fl, t_pf *pf)
+{
+	while (ft_strchr(pf->f_l, **fl) && **fl)
+	{
+		**fl == '0' ? skip_zero(fl, pf) : 0;
+		**fl == '#' ? pf->sharp = 1 : 0;
+		**fl == '-' ? pf->dash = 1 : 0;
+		**fl == '+' ? pf->plus = 1 : 0;
+		**fl == ' ' ? pf->space = 1 : 0;
+		**fl == '.' ? pf->dot = 1 : 0;
+		**fl == 'h' && *(*fl + 1) != 'h' ? pf->h = 1 : 0;
+		**fl == 'h' && *(*fl + 1) == 'h' ? pf->hh = 1 : 0;
+		**fl == 'l' && *(*fl + 1) != 'l' ? pf->l = 1 : 0;
+		**fl == 'l' && *(*fl + 1) == 'l' ? pf->ll = 1 : 0;
+		**fl == 'j' ? pf->j = 1 : 0;
+		**fl == 'z' ? pf->z = 1 : 0;
+		if (ft_isdigit(**fl))
+		{
+			pf->width = ft_atoi(*fl);
+			len_width(pf->width, pf);
+			*fl += pf->len_width;
+		}
+		(*fl)++;
+	}
+	(*fl)--;
+}
+
+int 	ft_check_form(const char *form, va_list fm)
 {
 	t_pf 	pf;
 
-	pf.s_p = "naAeEfFgGsSpdDioOuUxXcC%";
-	pf.f_l = "#0-+ ";
+	pf.s_p = "sSpdDioOuUxXcC";
+	pf.f_l = "#0-+  .hljz123456789";
 	while (*form)
 	{
 		while (*form != '%' && *form)
@@ -144,26 +165,21 @@ void 	ft_check_form(const char *form, va_list fm)
 			form++;
 		}
 		form++;
-		if (ft_strchr(pf.f_l, *form) && *form)
-			ft_check_fl(&form,&pf);
-		if (ft_isdigit(*form) && *form)
-		{
-			pf.width = ft_atoi(form);
-			len_width(pf.width, &pf);
-			form += pf.len_width;
-		}
+		ft_strchr(pf.f_l, *form) && *form ? ft_check_fl(&form,&pf) : 0;
 		if (ft_strchr(pf.s_p, *form) && *form)
 			ft_check_sp(*form, fm, &pf);
 		form++;
 	}
+	return (pf.print_smb);
 }
 
 int		ft_printf(const char *format, ...)
 {
 	va_list	fm;
+	int		print_smb;
 
 	va_start(fm, format);
-	ft_check_form(format, fm);
+	print_smb = ft_check_form(format, fm);
 	va_end(fm);
-	return (0);
+	return (print_smb);
 }
