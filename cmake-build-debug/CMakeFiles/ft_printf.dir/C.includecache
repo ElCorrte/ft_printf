@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c
+ft_printf.h
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
+
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_itoa_base.c
+ft_printf.h
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
+
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_mod_d_i.c
+ft_printf.h
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
+
 /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.c
 ft_printf.h
 /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
@@ -14,6 +26,10 @@ ft_printf.h
 stdarg.h
 -
 unistd.h
+-
+stdint.h
+-
+stdlib.h
 -
 libft/libft.h
 /nfs/2016/y/yzakharc/cursus_42/ft_printf/libft/libft.h

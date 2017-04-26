@@ -4,6 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c" "/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_check_sp.c.o"
+  "/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_itoa_base.c" "/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_itoa_base.c.o"
+  "/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_mod_d_i.c" "/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o"
   "/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.c" "/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
   "/nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c" "/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/main.c.o"
   )

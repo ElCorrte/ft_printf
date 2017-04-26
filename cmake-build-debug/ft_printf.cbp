@@ -82,6 +82,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_itoa_base.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_mod_d_i.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.c">
 			<Option target="ft_printf"/>
 		</Unit>

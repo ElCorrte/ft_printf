@@ -15,6 +15,8 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdint.h>
+# include <stdlib.h>
 # include "libft/libft.h"
 
 typedef struct	s_pf
@@ -23,8 +25,8 @@ typedef struct	s_pf
 	char		*s_p;
 	char 		*f_l;
 	char 		c;
+	char		spcr;
 	char 		*s;
-	int			i;
 	int 		sharp;
 	int 		zero;
 	int 		dash;
@@ -32,7 +34,23 @@ typedef struct	s_pf
 	int 		space;
 	int 		width;
 	int 		len_width;
+	int 		print_smb;
+	int 		h;
+	int 		hh;
+	int 		l;
+	int 		ll;
+	int 		j;
+	int 		z;
+	int 		dot;
+	int 		len_dot;
 }				t_pf;
+
 int				ft_printf(const char *format, ...);
+void			ft_itoa_dec(intmax_t value, t_pf *pf);
+void			itoa_hex_oct(uintmax_t value, t_pf *pf, int base, int x);
+int				len_value(intmax_t value);
+void			ft_check_sp(char sp, va_list fm, t_pf *pf);
+void			ft_mod_d_i(va_list fm, t_pf *pf);
+void			ft_mod_other(va_list fm, t_pf *pf, int key, int x);
 
 #endif

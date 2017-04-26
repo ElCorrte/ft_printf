@@ -123,6 +123,87 @@ ft_printf/fast:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/build
 .PHONY : ft_printf/fast
 
+ft_check_sp.o: ft_check_sp.c.o
+
+.PHONY : ft_check_sp.o
+
+# target to build an object file
+ft_check_sp.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_check_sp.c.o
+.PHONY : ft_check_sp.c.o
+
+ft_check_sp.i: ft_check_sp.c.i
+
+.PHONY : ft_check_sp.i
+
+# target to preprocess a source file
+ft_check_sp.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_check_sp.c.i
+.PHONY : ft_check_sp.c.i
+
+ft_check_sp.s: ft_check_sp.c.s
+
+.PHONY : ft_check_sp.s
+
+# target to generate assembly for a file
+ft_check_sp.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_check_sp.c.s
+.PHONY : ft_check_sp.c.s
+
+ft_itoa_base.o: ft_itoa_base.c.o
+
+.PHONY : ft_itoa_base.o
+
+# target to build an object file
+ft_itoa_base.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_itoa_base.c.o
+.PHONY : ft_itoa_base.c.o
+
+ft_itoa_base.i: ft_itoa_base.c.i
+
+.PHONY : ft_itoa_base.i
+
+# target to preprocess a source file
+ft_itoa_base.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_itoa_base.c.i
+.PHONY : ft_itoa_base.c.i
+
+ft_itoa_base.s: ft_itoa_base.c.s
+
+.PHONY : ft_itoa_base.s
+
+# target to generate assembly for a file
+ft_itoa_base.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_itoa_base.c.s
+.PHONY : ft_itoa_base.c.s
+
+ft_mod_d_i.o: ft_mod_d_i.c.o
+
+.PHONY : ft_mod_d_i.o
+
+# target to build an object file
+ft_mod_d_i.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o
+.PHONY : ft_mod_d_i.c.o
+
+ft_mod_d_i.i: ft_mod_d_i.c.i
+
+.PHONY : ft_mod_d_i.i
+
+# target to preprocess a source file
+ft_mod_d_i.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_mod_d_i.c.i
+.PHONY : ft_mod_d_i.c.i
+
+ft_mod_d_i.s: ft_mod_d_i.c.s
+
+.PHONY : ft_mod_d_i.s
+
+# target to generate assembly for a file
+ft_mod_d_i.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_mod_d_i.c.s
+.PHONY : ft_mod_d_i.c.s
+
 ft_printf.o: ft_printf.c.o
 
 .PHONY : ft_printf.o
@@ -186,6 +267,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ft_printf"
+	@echo "... ft_check_sp.o"
+	@echo "... ft_check_sp.i"
+	@echo "... ft_check_sp.s"
+	@echo "... ft_itoa_base.o"
+	@echo "... ft_itoa_base.i"
+	@echo "... ft_itoa_base.s"
+	@echo "... ft_mod_d_i.o"
+	@echo "... ft_mod_d_i.i"
+	@echo "... ft_mod_d_i.s"
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"

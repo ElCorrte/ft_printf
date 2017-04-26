@@ -105,20 +105,98 @@ CMakeFiles/ft_printf.dir/main.c.o.provides: CMakeFiles/ft_printf.dir/main.c.o.re
 CMakeFiles/ft_printf.dir/main.c.o.provides.build: CMakeFiles/ft_printf.dir/main.c.o
 
 
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.o: ../ft_itoa_base.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ft_printf.dir/ft_itoa_base.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_itoa_base.c.o   -c /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_itoa_base.c
+
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_itoa_base.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_itoa_base.c > CMakeFiles/ft_printf.dir/ft_itoa_base.c.i
+
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_itoa_base.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_itoa_base.c -o CMakeFiles/ft_printf.dir/ft_itoa_base.c.s
+
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.requires:
+
+.PHONY : CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.requires
+
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.provides: CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.requires
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.provides.build
+.PHONY : CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.provides
+
+CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.provides.build: CMakeFiles/ft_printf.dir/ft_itoa_base.c.o
+
+
+CMakeFiles/ft_printf.dir/ft_check_sp.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_check_sp.c.o: ../ft_check_sp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ft_printf.dir/ft_check_sp.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_check_sp.c.o   -c /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c
+
+CMakeFiles/ft_printf.dir/ft_check_sp.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_check_sp.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c > CMakeFiles/ft_printf.dir/ft_check_sp.c.i
+
+CMakeFiles/ft_printf.dir/ft_check_sp.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_check_sp.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c -o CMakeFiles/ft_printf.dir/ft_check_sp.c.s
+
+CMakeFiles/ft_printf.dir/ft_check_sp.c.o.requires:
+
+.PHONY : CMakeFiles/ft_printf.dir/ft_check_sp.c.o.requires
+
+CMakeFiles/ft_printf.dir/ft_check_sp.c.o.provides: CMakeFiles/ft_printf.dir/ft_check_sp.c.o.requires
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_check_sp.c.o.provides.build
+.PHONY : CMakeFiles/ft_printf.dir/ft_check_sp.c.o.provides
+
+CMakeFiles/ft_printf.dir/ft_check_sp.c.o.provides.build: CMakeFiles/ft_printf.dir/ft_check_sp.c.o
+
+
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o: ../ft_mod_d_i.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o   -c /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_mod_d_i.c
+
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_mod_d_i.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_mod_d_i.c > CMakeFiles/ft_printf.dir/ft_mod_d_i.c.i
+
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_mod_d_i.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_mod_d_i.c -o CMakeFiles/ft_printf.dir/ft_mod_d_i.c.s
+
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.requires:
+
+.PHONY : CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.requires
+
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.provides: CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.requires
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.provides.build
+.PHONY : CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.provides
+
+CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.provides.build: CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o
+
+
 # Object files for target ft_printf
 ft_printf_OBJECTS = \
 "CMakeFiles/ft_printf.dir/ft_printf.c.o" \
-"CMakeFiles/ft_printf.dir/main.c.o"
+"CMakeFiles/ft_printf.dir/main.c.o" \
+"CMakeFiles/ft_printf.dir/ft_itoa_base.c.o" \
+"CMakeFiles/ft_printf.dir/ft_check_sp.c.o" \
+"CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o"
 
 # External object files for target ft_printf
 ft_printf_EXTERNAL_OBJECTS =
 
 ft_printf: CMakeFiles/ft_printf.dir/ft_printf.c.o
 ft_printf: CMakeFiles/ft_printf.dir/main.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_itoa_base.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_check_sp.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o
 ft_printf: CMakeFiles/ft_printf.dir/build.make
 ft_printf: ../libft.a
 ft_printf: CMakeFiles/ft_printf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ft_printf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable ft_printf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_printf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +206,9 @@ CMakeFiles/ft_printf.dir/build: ft_printf
 
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_printf.c.o.requires
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/main.c.o.requires
+CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.requires
+CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_check_sp.c.o.requires
+CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.requires
 
 .PHONY : CMakeFiles/ft_printf.dir/requires
 
