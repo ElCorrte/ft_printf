@@ -77,6 +77,7 @@ int 	ft_check_form(const char *form, va_list fm)
 			ft_check_sp(*form, fm, &pf);
 		*form ? form++ : 0;
 	}
+
 	return (pf.print_smb);
 }
 

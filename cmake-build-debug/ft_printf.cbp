@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/decimal_test_main.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c">
 			<Option target="ft_printf"/>
 		</Unit>
@@ -98,9 +101,6 @@
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/libft/libft.h">
-			<Option target="ft_printf"/>
-		</Unit>
-		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/nfs/2016/y/yzakharc/cursus_42/ft_printf/CMakeLists.txt">

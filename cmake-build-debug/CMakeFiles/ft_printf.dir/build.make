@@ -81,28 +81,28 @@ CMakeFiles/ft_printf.dir/ft_printf.c.o.provides: CMakeFiles/ft_printf.dir/ft_pri
 CMakeFiles/ft_printf.dir/ft_printf.c.o.provides.build: CMakeFiles/ft_printf.dir/ft_printf.c.o
 
 
-CMakeFiles/ft_printf.dir/main.c.o: CMakeFiles/ft_printf.dir/flags.make
-CMakeFiles/ft_printf.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ft_printf.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/main.c.o   -c /nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c
+CMakeFiles/ft_printf.dir/decimal_test_main.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/decimal_test_main.c.o: ../decimal_test_main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/y/yzakharc/cursus_42/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ft_printf.dir/decimal_test_main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/decimal_test_main.c.o   -c /nfs/2016/y/yzakharc/cursus_42/ft_printf/decimal_test_main.c
 
-CMakeFiles/ft_printf.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c > CMakeFiles/ft_printf.dir/main.c.i
+CMakeFiles/ft_printf.dir/decimal_test_main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/decimal_test_main.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/y/yzakharc/cursus_42/ft_printf/decimal_test_main.c > CMakeFiles/ft_printf.dir/decimal_test_main.c.i
 
-CMakeFiles/ft_printf.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c -o CMakeFiles/ft_printf.dir/main.c.s
+CMakeFiles/ft_printf.dir/decimal_test_main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/decimal_test_main.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/y/yzakharc/cursus_42/ft_printf/decimal_test_main.c -o CMakeFiles/ft_printf.dir/decimal_test_main.c.s
 
-CMakeFiles/ft_printf.dir/main.c.o.requires:
+CMakeFiles/ft_printf.dir/decimal_test_main.c.o.requires:
 
-.PHONY : CMakeFiles/ft_printf.dir/main.c.o.requires
+.PHONY : CMakeFiles/ft_printf.dir/decimal_test_main.c.o.requires
 
-CMakeFiles/ft_printf.dir/main.c.o.provides: CMakeFiles/ft_printf.dir/main.c.o.requires
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/main.c.o.provides.build
-.PHONY : CMakeFiles/ft_printf.dir/main.c.o.provides
+CMakeFiles/ft_printf.dir/decimal_test_main.c.o.provides: CMakeFiles/ft_printf.dir/decimal_test_main.c.o.requires
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/decimal_test_main.c.o.provides.build
+.PHONY : CMakeFiles/ft_printf.dir/decimal_test_main.c.o.provides
 
-CMakeFiles/ft_printf.dir/main.c.o.provides.build: CMakeFiles/ft_printf.dir/main.c.o
+CMakeFiles/ft_printf.dir/decimal_test_main.c.o.provides.build: CMakeFiles/ft_printf.dir/decimal_test_main.c.o
 
 
 CMakeFiles/ft_printf.dir/ft_itoa_base.c.o: CMakeFiles/ft_printf.dir/flags.make
@@ -180,7 +180,7 @@ CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.provides.build: CMakeFiles/ft_printf.dir
 # Object files for target ft_printf
 ft_printf_OBJECTS = \
 "CMakeFiles/ft_printf.dir/ft_printf.c.o" \
-"CMakeFiles/ft_printf.dir/main.c.o" \
+"CMakeFiles/ft_printf.dir/decimal_test_main.c.o" \
 "CMakeFiles/ft_printf.dir/ft_itoa_base.c.o" \
 "CMakeFiles/ft_printf.dir/ft_check_sp.c.o" \
 "CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o"
@@ -189,7 +189,7 @@ ft_printf_OBJECTS = \
 ft_printf_EXTERNAL_OBJECTS =
 
 ft_printf: CMakeFiles/ft_printf.dir/ft_printf.c.o
-ft_printf: CMakeFiles/ft_printf.dir/main.c.o
+ft_printf: CMakeFiles/ft_printf.dir/decimal_test_main.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_itoa_base.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_check_sp.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o
@@ -205,7 +205,7 @@ CMakeFiles/ft_printf.dir/build: ft_printf
 .PHONY : CMakeFiles/ft_printf.dir/build
 
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_printf.c.o.requires
-CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/main.c.o.requires
+CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/decimal_test_main.c.o.requires
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_itoa_base.c.o.requires
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_check_sp.c.o.requires
 CMakeFiles/ft_printf.dir/requires: CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o.requires

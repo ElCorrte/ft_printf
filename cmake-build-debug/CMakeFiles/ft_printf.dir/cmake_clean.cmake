@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_printf.c.o"
-  "CMakeFiles/ft_printf.dir/main.c.o"
+  "CMakeFiles/ft_printf.dir/decimal_test_main.c.o"
   "CMakeFiles/ft_printf.dir/ft_itoa_base.c.o"
   "CMakeFiles/ft_printf.dir/ft_check_sp.c.o"
   "CMakeFiles/ft_printf.dir/ft_mod_d_i.c.o"

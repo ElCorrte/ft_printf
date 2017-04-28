@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/decimal_test_main.c
+ft_printf.h
+/nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
+stdio.h
+-
+
 /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_check_sp.c
 ft_printf.h
 /nfs/2016/y/yzakharc/cursus_42/ft_printf/ft_printf.h
@@ -36,9 +42,5 @@ libft/libft.h
 
 /nfs/2016/y/yzakharc/cursus_42/ft_printf/libft/libft.h
 string.h
--
-
-/nfs/2016/y/yzakharc/cursus_42/ft_printf/main.c
-stdio.h
 -
 

@@ -123,6 +123,33 @@ ft_printf/fast:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/build
 .PHONY : ft_printf/fast
 
+decimal_test_main.o: decimal_test_main.c.o
+
+.PHONY : decimal_test_main.o
+
+# target to build an object file
+decimal_test_main.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/decimal_test_main.c.o
+.PHONY : decimal_test_main.c.o
+
+decimal_test_main.i: decimal_test_main.c.i
+
+.PHONY : decimal_test_main.i
+
+# target to preprocess a source file
+decimal_test_main.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/decimal_test_main.c.i
+.PHONY : decimal_test_main.c.i
+
+decimal_test_main.s: decimal_test_main.c.s
+
+.PHONY : decimal_test_main.s
+
+# target to generate assembly for a file
+decimal_test_main.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/decimal_test_main.c.s
+.PHONY : decimal_test_main.c.s
+
 ft_check_sp.o: ft_check_sp.c.o
 
 .PHONY : ft_check_sp.o
@@ -231,33 +258,6 @@ ft_printf.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.s
 .PHONY : ft_printf.c.s
 
-main.o: main.c.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/main.c.o
-.PHONY : main.c.o
-
-main.i: main.c.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/main.c.s
-.PHONY : main.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,6 +267,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ft_printf"
+	@echo "... decimal_test_main.o"
+	@echo "... decimal_test_main.i"
+	@echo "... decimal_test_main.s"
 	@echo "... ft_check_sp.o"
 	@echo "... ft_check_sp.i"
 	@echo "... ft_check_sp.s"
@@ -279,9 +282,6 @@ help:
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 

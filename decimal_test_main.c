@@ -11,8 +11,8 @@ int		main(void)
 
 	my = ft_printf("my1 = %-+10da\n", 42);
 	orig = printf("or1 = %-+10da\n", 42);
-	//printf("my1 = %d\nor1 = %d\n--------------------\n", my, orig);
-	/*my = ft_printf("my2 = %-010da\n", 42);
+	printf("my1 = %d\nor1 = %d\n--------------------\n", my, orig);
+	my = ft_printf("my2 = %-010da\n", 42);
 	orig = printf("or2 = %-010da\n", 42);
 	printf("my2 = %d\nor2 = %d\n--------------------\n", my, orig);
 	my = ft_printf("my3 = %-10.15da\n", 42);
@@ -28,7 +28,7 @@ int		main(void)
 	orig = printf("or6 = %15.10da\n", 42);
 	printf("my6 = %d\nor6 = %d\n--------------------\n", my, orig);
 	my = ft_printf("my7 = % +d\n", 42);
-	orig = printf("my6 = % +d\n", 42);
+	orig = printf("or7 = % +d\n", 42);
 	printf("my7 = %d\nor7 = %d\n--------------------\n", my, orig);
 	my = ft_printf("my8 = %+010d\n", 42);
 	orig = printf("or8 = %+010d\n", 42);
@@ -82,6 +82,6 @@ int		main(void)
 	printf("\n");
 	orig = printf("%i");
 	printf("\n");
-	printf("my22 = %d\nor22 = %d\n--------------------\n", my, orig);*/
+	printf("my22 = %d\nor22 = %d\n--------------------\n", my, orig);
 	return (0);
 }

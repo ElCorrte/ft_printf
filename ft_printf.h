@@ -34,6 +34,8 @@ typedef struct	s_pf
 	int 		space;
 	int 		width;
 	int 		len_width;
+	int 		dot;
+	int 		len_dot;
 	int 		print_smb;
 	int 		h;
 	int 		hh;
@@ -41,8 +43,6 @@ typedef struct	s_pf
 	int 		ll;
 	int 		j;
 	int 		z;
-	int 		dot;
-	int 		len_dot;
 }				t_pf;
 
 int				ft_printf(const char *format, ...);

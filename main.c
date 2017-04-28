@@ -15,9 +15,10 @@ int 	main(void)
 	char *s = "ello";
 	int	cnt = 0;
 
+
 	printf("__________%i__________\n", cnt++);
-	printf("orig = %p\n", p);
-	ft_printf("_my_ = %p\n", p);
+	printf("orig = %-10.4i\n", i);
+	ft_printf("_my_ = %-10.4i\n", i);
 	printf("\n__________%i__________\n", cnt++);
 	printf("orig = %u\n", u);
 	ft_printf("_my_ = %u\n", u);
@@ -25,8 +26,8 @@ int 	main(void)
 	printf("orig = %U\n", u);
 	ft_printf("_my_ = %U\n", u);
 	printf("\n__________%i__________\n", cnt++);
-	printf("orig = %i\n", i);
-	ft_printf("_my_ = %i\n", i);
+	printf("orig = %p\n", p);
+	ft_printf("_my_ = %p\n", p);
 	printf("\n__________%i__________\n", cnt++);
 	printf("orig = %d\n", d);
 	ft_printf("_my_ = %d\n", d);
@@ -40,11 +41,11 @@ int 	main(void)
 	printf("orig = %X\n", X);
 	ft_printf("_my_ = %X\n", X);
 	printf("\n__________%i__________\n", cnt++);
-	printf("orig = %o\n", o);
-	ft_printf("_my_ = %o\n", o);
+	printf("orig = %#o\n", o);
+	ft_printf("_my_ = %#o\n", o);
 	printf("\n__________%i__________\n", cnt++);
-	printf("orig = %O\n", o);
-	ft_printf("_my_ = %O\n", o);
+	printf("orig = %#O\n", o);
+	ft_printf("_my_ = %#O\n", o);
 	printf("\n__________%i__________\n", cnt++);
 	printf("orig = %c\n", c);
 	ft_printf("_my_ = %c\n", c);
