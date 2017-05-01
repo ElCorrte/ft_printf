@@ -87,7 +87,7 @@ void	create_dot(char *str, int dot, t_pf *pf)
 	*str == '-' ? dot++ : 0;
 	end = *str == '-' ? 1 : 0;
 	len = dot;
-	if (dot > i)
+	if ((size_t)dot > i)
 	{
 		dot_str = ft_strnew((size_t)dot);
 		while(dot-- > 0)
