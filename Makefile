@@ -6,41 +6,32 @@
 #    By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/01 18:16:17 by yzakharc          #+#    #+#              #
-#    Updated: 2017/05/01 19:11:13 by yzakharc         ###   ########.fr        #
+#    Updated: 2017/05/01 19:53:31 by yzakharc         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SRC = data_record.c ft_itoa_base.c ft_printf.c check_specifiers.c
-OBJECT = $(SRC:.c=.o)
-LIBFT = ./libft/ft_strlen.o		\
-		./libft/ft_strdup.o		\
-		./libft/ft_strchr.o		\
-		./libft/ft_atoi.o		\
-		./libft/ft_isdigit.o	\
-		./libft/ft_strnew.o		\
-		./libft/ft_strdel.o		\
-	 	./libft/ft_putchar.o	\
-	 	./libft/ft_putstr.o		\
+SRC = data_record.o ft_itoa_base.o ft_printf.o check_specifiers.o
+LIBFT = ./libft/*.o
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY: all libft
 
 all: $(NAME)
 
-$(NAME): libft.a $(OBJECT)
-	ar rc $(NAME) $(OBJECT) $(LIBFT)
+$(NAME): libft $(SRC)
+	ar rc $(NAME) $(SRC) $(LIBFT)
 	ranlib $(NAME)
 
-libft.a:
+libft:
 	make -C ./libft
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(FLAGS) -o $@ -c $<
 
 clean:
-	rm -f $(OBJECT)
+	rm -f $(SRC)
 	make clean -C ./libft
 
 fclean: clean
