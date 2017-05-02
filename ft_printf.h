@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdlib.h>
-# include "libft/libft.h"
 
 typedef struct	s_pf
 {
@@ -49,8 +48,24 @@ int				ft_printf(const char *format, ...);
 void			ft_itoa_dec(intmax_t value, t_pf *pf);
 void			itoa_hex_oct(uintmax_t value, t_pf *pf, int base, int x);
 int				len_value(intmax_t value);
-void			ft_check_sp(char sp, va_list fm, t_pf *pf);
-void			ft_mod_d_i(va_list fm, t_pf *pf);
-void			ft_mod_other(va_list fm, t_pf *pf, int key, int x);
+void			ft_check_sp(char sp, va_list *fm, t_pf *pf);
+void			ft_mod_d_i(va_list *fm, t_pf *pf);
+void			ft_mod_other(va_list *fm, t_pf *pf, int key, int x);
+void			clean_all(t_pf *pf);
+void			ft_check_smb(const char *str, t_pf *pf);
+void			print_width(int minus, t_pf *pf);
+void			use_flag(t_pf *pf);
+int 			len_for_width(t_pf *pf);
+void			putchar_pf(char c, t_pf *pf);
+void			putstr_pf(char const *s, t_pf *pf);
+void			ft_trunk(t_pf *pf);
+int				ft_isdigit(int c);
+char			*ft_strchr(const char *s, int c);
+size_t			ft_strlen(const char *str);
+char			*ft_strnew(size_t size);
+int				ft_atoi(const char *str);
+void			ft_strdel(char **as);
+char			*ft_strdup(const char *str);
+char			*ft_strnew(size_t size);
 
 #endif

@@ -12,12 +12,23 @@
 
 #include "ft_printf.h"
 
-void	check_dot(t_pf *pf, const char **str)
+int		check_dot(t_pf *pf, const char **str, va_list *fm)
 {
 	(*str)++;
 	ft_isdigit(**str) ? pf->dot = ft_atoi(*str) : (pf->dot = 0);
+	**str == '*' ? pf->dot = va_arg(*fm, int) : 0;
 	pf->len_dot = len_value(pf->dot);
+	pf->len_dot == 0 ? pf->len_dot++ : 0;
 	*str += pf->len_dot;
+	return (0);
+}
+
+int		check_width(t_pf *pf, const char **str)
+{
+	pf->width = ft_atoi(*str);
+	pf->len_width = len_value(pf->width);
+	*str += pf->len_width;
+	return (0);
 }
 
 void	skip_zero(const char **fl, t_pf *pf)
@@ -27,7 +38,7 @@ void	skip_zero(const char **fl, t_pf *pf)
 		(*fl)++;
 }
 
-void	ft_check_fl(const char **fl, t_pf *pf)
+int		ft_check_fl(const char **fl, t_pf *pf, va_list *fm)
 {
 	while (ft_strchr(pf->f_l, **fl) && **fl)
 	{
@@ -36,7 +47,8 @@ void	ft_check_fl(const char **fl, t_pf *pf)
 		**fl == '-' ? pf->dash = 1 : 0;
 		**fl == '+' ? pf->plus = 1 : 0;
 		**fl == ' ' ? pf->space = 1 : 0;
-		**fl == '.' ? check_dot(pf, fl) : 0;
+		if (**fl == '.')
+			return (check_dot(pf, fl, fm));
 		**fl == 'h' && *(*fl + 1) != 'h' ? pf->h = 1 : 0;
 		**fl == 'h' && *(*fl + 1) == 'h' ? pf->hh = 1 : 0;
 		**fl == 'l' && *(*fl + 1) != 'l' ? pf->l = 1 : 0;
@@ -44,50 +56,47 @@ void	ft_check_fl(const char **fl, t_pf *pf)
 		**fl == 'j' ? pf->j = 1 : 0;
 		**fl == 'z' ? pf->z = 1 : 0;
 		if (ft_isdigit(**fl))
-		{
-			pf->width = ft_atoi(*fl);
-			pf->len_width = len_value(pf->width);
-			*fl += pf->len_width;
-			break ;
-		}
-		pf->hh == 1 || pf->ll == 1 ? (*fl) += 2 : (*fl)++;
+			return (check_width(pf, fl));
+		(*fl)++;
 	}
+	return (0);
 }
 
-int 	ft_check_form(const char *form, va_list fm)
+int 	ft_check_form(const char *form, va_list *fm, t_pf *pf)
 {
-	t_pf 	pf;
-
-	pf.s_p = "sSpdDioOuUxXcC";
-	pf.f_l = "#0-+  .hljz123456789";
-	pf.print_smb = 0;
 	while (*form)
 	{
 		while (*form != '%' && *form)
 		{
-			ft_putchar(*form);
-			pf.print_smb++;
+			putchar_pf(*form, pf);
 			form++;
 		}
 		*form ? form++ : 0;
-		while (ft_strchr(pf.f_l, *form) && *form)
-			ft_check_fl(&form, &pf);
-		(ft_strchr(pf.s_p, *form) && *form) ? 0 : form--;
-		if (ft_strchr(pf.s_p, *form) && *form)
-			ft_check_sp(*form, fm, &pf);
+		while (ft_strchr(pf->f_l, *form) && *form)
+			ft_check_fl(&form, pf, fm);
+		ft_trunk(pf);
+		if (ft_strchr(pf->s_p, *form) && *form)
+			ft_check_sp(*form, fm, pf);
+		else
+			*form ? ft_check_smb(form, pf) : 0;
 		*form ? form++ : 0;
 	}
-
-	return (pf.print_smb);
+	return (pf->print_smb);
 }
 
 int		ft_printf(const char *format, ...)
 {
 	va_list	fm;
-	int		print_smb;
+	int		how_mach;
+	t_pf 	pf;
 
+	pf.s_p = "sSpdDioOuUxXcC";
+	pf.f_l = "#0-+  .hljz123456789";
+	pf.print_smb = 0;
+	clean_all(&pf);
 	va_start(fm, format);
-	print_smb = ft_check_form(format, fm);
+	how_mach = ft_check_form(format, &fm, &pf);
+	clean_all(&pf);
 	va_end(fm);
-	return (print_smb);
+	return (how_mach);
 }

@@ -6,14 +6,15 @@
 #    By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/01 18:16:17 by yzakharc          #+#    #+#              #
-#    Updated: 2017/05/01 19:53:31 by yzakharc         ###   ########.fr        #
+#    Updated: 2017/05/02 18:49:09 by yzakharc         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SRC = data_record.o ft_itoa_base.o ft_printf.o check_specifiers.o
+SRC = data_record.o ft_itoa_base.o ft_printf.o check_specifiers.o				\
+		important_functions.o
 LIBFT = ./libft/*.o
 
 .PHONY: all libft
