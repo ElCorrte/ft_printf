@@ -15,8 +15,6 @@
 int		check_dot(t_pf *pf, const char **str, va_list *fm)
 {
 	(*str)++;
-	if (!ft_isdigit(**str))
-		return (0);
 	pf->dot = ft_isdigit(**str) ? ft_atoi(*str) : 0;
 	**str == '*' ? pf->dot = va_arg(*fm, int) : 0;
 	pf->len_dot = len_value(pf->dot);
@@ -85,7 +83,6 @@ int		ft_check_form(const char *form, va_list *fm, t_pf *pf)
 {
 	while (*form)
 	{
-		clean_all(pf);
 		while (*form != '%' && *form)
 		{
 			putchar_pf(*form, pf);
@@ -113,6 +110,7 @@ int		ft_printf(const char *format, ...)
 	pf.s_p = "sSpdDioOuUxXcC";
 	pf.f_l = "#0-+  .hljz123456789";
 	pf.print_smb = 0;
+	clean_all(&pf);
 	va_start(fm, format);
 	how_mach = ft_check_form(format, &fm, &pf);
 	clean_all(&pf);

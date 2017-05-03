@@ -77,8 +77,6 @@ void	create_dot(char *str, int dot, t_pf *pf)
 	size_t	i;
 	int		end;
 
-	if ((pf->dot == 0 && pf->len_dot == 0) || pf->dot == 0)
-		*pf->str = '\0';
 	i = ft_strlen(str);
 	*str == '-' ? dot++ : 0;
 	end = *str == '-' ? 1 : 0;
@@ -101,7 +99,7 @@ void	create_dot(char *str, int dot, t_pf *pf)
 
 void	use_flag(t_pf *pf)
 {
-	pf->dot == 0 || pf->dot == 1 ? create_dot(pf->str, pf->dot, pf) : 0;
+	pf->dot ? create_dot(pf->str, pf->dot, pf) : 0;
 	pf->dash == 1 ? print_dash(pf) : 0;
 	if (pf->width && pf->width > pf->dot && pf->width > (int)ft_strlen(pf->str))
 		print_width(len_for_width(pf), pf);
