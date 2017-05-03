@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H_
-# define FT_PRINTF_H_
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -22,26 +22,27 @@ typedef struct	s_pf
 {
 	char		*str;
 	char		*s_p;
-	char 		*f_l;
-	char 		c;
+	char		*f_l;
+	char		c;
 	char		spcr;
-	char 		*s;
-	int 		sharp;
-	int 		zero;
-	int 		dash;
+	char		*s;
+	int 		sharp_true;
+	int			sharp;
+	int			zero;
+	int			dash;
 	int			plus;
-	int 		space;
-	int 		width;
-	int 		len_width;
-	int 		dot;
-	int 		len_dot;
-	int 		print_smb;
-	int 		h;
-	int 		hh;
-	int 		l;
-	int 		ll;
-	int 		j;
-	int 		z;
+	int			space;
+	int			width;
+	int			len_width;
+	int			dot;
+	int			len_dot;
+	int			print_smb;
+	int			h;
+	int			hh;
+	int			l;
+	int			ll;
+	int			j;
+	int			z;
 }				t_pf;
 
 int				ft_printf(const char *format, ...);
@@ -55,7 +56,7 @@ void			clean_all(t_pf *pf);
 void			ft_check_smb(const char *str, t_pf *pf);
 void			print_width(int minus, t_pf *pf);
 void			use_flag(t_pf *pf);
-int 			len_for_width(t_pf *pf);
+int				len_for_width(t_pf *pf);
 void			putchar_pf(char c, t_pf *pf);
 void			putstr_pf(char const *s, t_pf *pf);
 void			ft_trunk(t_pf *pf);
@@ -67,5 +68,8 @@ int				ft_atoi(const char *str);
 void			ft_strdel(char **as);
 char			*ft_strdup(const char *str);
 char			*ft_strnew(size_t size);
+void			ft_sharp(t_pf *pf);
+void			putstr_pf(char const *s, t_pf *pf);
+void			putchar_pf(char c, t_pf *pf);
 
 #endif

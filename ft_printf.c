@@ -15,7 +15,9 @@
 int		check_dot(t_pf *pf, const char **str, va_list *fm)
 {
 	(*str)++;
-	ft_isdigit(**str) ? pf->dot = ft_atoi(*str) : (pf->dot = 0);
+	if (!ft_isdigit(**str))
+		return (0);
+	pf->dot = ft_isdigit(**str) ? ft_atoi(*str) : 0;
 	**str == '*' ? pf->dot = va_arg(*fm, int) : 0;
 	pf->len_dot = len_value(pf->dot);
 	pf->len_dot == 0 ? pf->len_dot++ : 0;
@@ -38,6 +40,21 @@ void	skip_zero(const char **fl, t_pf *pf)
 		(*fl)++;
 }
 
+int 	skip_hh_ll(const char **fl, t_pf *pf)
+{
+	if (**fl == 'h' && *(*fl + 1) == 'h')
+	{
+		pf->hh = 1;
+		(*fl) += 2;
+	}
+	if (**fl == 'l' && *(*fl + 1) == 'l')
+	{
+		pf->ll = 1;
+		(*fl) += 2;
+	}
+	return (0);
+}
+
 int		ft_check_fl(const char **fl, t_pf *pf, va_list *fm)
 {
 	while (ft_strchr(pf->f_l, **fl) && **fl)
@@ -50,9 +67,11 @@ int		ft_check_fl(const char **fl, t_pf *pf, va_list *fm)
 		if (**fl == '.')
 			return (check_dot(pf, fl, fm));
 		**fl == 'h' && *(*fl + 1) != 'h' ? pf->h = 1 : 0;
-		**fl == 'h' && *(*fl + 1) == 'h' ? pf->hh = 1 : 0;
+		if (**fl == 'h' && *(*fl + 1) == 'h')
+			return (skip_hh_ll(fl, pf));
 		**fl == 'l' && *(*fl + 1) != 'l' ? pf->l = 1 : 0;
-		**fl == 'l' && *(*fl + 1) == 'l' ? pf->ll = 1 : 0;
+		if (**fl == 'l' && *(*fl + 1) == 'l')
+			return (skip_hh_ll(fl, pf));
 		**fl == 'j' ? pf->j = 1 : 0;
 		**fl == 'z' ? pf->z = 1 : 0;
 		if (ft_isdigit(**fl))
@@ -62,10 +81,11 @@ int		ft_check_fl(const char **fl, t_pf *pf, va_list *fm)
 	return (0);
 }
 
-int 	ft_check_form(const char *form, va_list *fm, t_pf *pf)
+int		ft_check_form(const char *form, va_list *fm, t_pf *pf)
 {
 	while (*form)
 	{
+		clean_all(pf);
 		while (*form != '%' && *form)
 		{
 			putchar_pf(*form, pf);
@@ -88,12 +108,11 @@ int		ft_printf(const char *format, ...)
 {
 	va_list	fm;
 	int		how_mach;
-	t_pf 	pf;
+	t_pf	pf;
 
 	pf.s_p = "sSpdDioOuUxXcC";
 	pf.f_l = "#0-+  .hljz123456789";
 	pf.print_smb = 0;
-	clean_all(&pf);
 	va_start(fm, format);
 	how_mach = ft_check_form(format, &fm, &pf);
 	clean_all(&pf);

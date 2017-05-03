@@ -12,29 +12,7 @@
 
 #include "ft_printf.h"
 
-void	putchar_pf(char c, t_pf *pf)
-{
-	write(1, &c, 1);
-	pf->print_smb++;
-}
-
-void	putstr_pf(char const *s, t_pf *pf)
-{
-	if (s == NULL)
-		return ;
-	while (*s++)
-		putchar_pf(*(s - 1), pf);
-}
-
-void	ft_sharp(t_pf *pf)
-{
-	(pf->spcr == 'o' || pf->spcr == 'O') ? putchar_pf('0', pf) : 0;
-	pf->spcr == 'x' || pf->spcr == 'p' ? putstr_pf("0x", pf) : 0;
-	pf->spcr == 'X' ? putstr_pf("0X", pf) : 0;
-
-}
-
-void	ft_plus_space(t_pf *pf)
+void	ft_pl_sp(t_pf *pf)
 {
 	if (pf->spcr == 'i' || pf->spcr == 'd')
 	{
@@ -58,7 +36,7 @@ void	print_width(int minus, t_pf *pf)
 	int	width;
 
 	if (!pf->space || pf->zero == 1)
-		(pf->zero == 1 && pf->plus == 1) || pf->space == 1 ? ft_plus_space(pf) : 0;
+		(pf->zero == 1 && pf->plus == 1) || pf->space == 1 ? ft_pl_sp(pf) : 0;
 	width = pf->width;
 	pf->space == 1 || pf->plus == 1 ? width-- : 0;
 	pf->width = 0;
@@ -81,12 +59,12 @@ void	print_width(int minus, t_pf *pf)
 			putchar_pf(' ', pf);
 		width--;
 	}
-	//pf->zero = 0;
 }
 
 void	print_dash(t_pf *pf)
 {
-	pf->space == 1 || pf->plus == 1 ? ft_plus_space(pf) : 0;
+	pf->sharp == 1 ? ft_sharp(pf) : 0;
+	pf->space == 1 || pf->plus == 1 ? ft_pl_sp(pf) : 0;
 	pf->str ? putstr_pf(pf->str, pf) : 0;
 	pf->c ? putchar_pf(pf->c, pf) : 0;
 	(pf->width > pf->dot) ? print_width(len_for_width(pf), pf) : 0;
@@ -99,6 +77,8 @@ void	create_dot(char *str, int dot, t_pf *pf)
 	size_t	i;
 	int		end;
 
+	if ((pf->dot == 0 && pf->len_dot == 0) || pf->dot == 0)
+		*pf->str = '\0';
 	i = ft_strlen(str);
 	*str == '-' ? dot++ : 0;
 	end = *str == '-' ? 1 : 0;
@@ -121,11 +101,12 @@ void	create_dot(char *str, int dot, t_pf *pf)
 
 void	use_flag(t_pf *pf)
 {
-	pf->dot ? create_dot(pf->str, pf->dot, pf) : 0;
+	pf->dot == 0 || pf->dot == 1 ? create_dot(pf->str, pf->dot, pf) : 0;
 	pf->dash == 1 ? print_dash(pf) : 0;
-	pf->width && pf->width > pf->dot ? print_width(len_for_width(pf), pf) : 0;
-	(pf->sharp == 1 || pf->spcr == 'p') ? ft_sharp(pf) : 0;
-	(pf->plus == 1 || pf->space == 1) ? ft_plus_space(pf) : 0;
+	if (pf->width && pf->width > pf->dot && pf->width > (int)ft_strlen(pf->str))
+		print_width(len_for_width(pf), pf);
+	(!pf->sharp_true && (pf->sharp == 1 || pf->spcr == 'p')) ? ft_sharp(pf) : 0;
+	(pf->plus == 1 || pf->space == 1) ? ft_pl_sp(pf) : 0;
 	pf->dash == 1 ? pf->dash = 0 : putstr_pf(pf->str, pf);
 	ft_strdel(&pf->str);
 }

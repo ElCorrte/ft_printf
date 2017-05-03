@@ -34,6 +34,8 @@ void	ft_check_smb(const char *str, t_pf *pf)
 
 void	clean_all(t_pf *pf)
 {
+	pf->c = 0;
+	pf->sharp_true = 0;
 	pf->sharp = 0;
 	pf->zero = 0;
 	pf->dash = 0;
@@ -43,7 +45,6 @@ void	clean_all(t_pf *pf)
 	pf->len_width = 0;
 	pf->dot = 0;
 	pf->len_dot = 0;
-	pf->print_smb = 0;
 	pf->h = 0;
 	pf->hh = 0;
 	pf->l = 0;
