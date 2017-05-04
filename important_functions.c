@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:39:04 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/02 18:39:05 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/04 15:49:15 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ size_t	ft_strlen(const char *str)
 {
 	size_t	count;
 
+	if (str == NULL)
+		return (0);
 	count = 0;
 	while (str[count])
 		count++;

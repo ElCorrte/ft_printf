@@ -6,13 +6,13 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 22:08:32 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/02 22:08:32 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/04 15:46:45 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isspace(int c)
+int		ft_isspace(int c)
 {
 	if ((c == '\t') || (c == '\n') || (c == '\v') || (c == '\f') || (c == '\r')\
 		|| (c == ' '))

@@ -6,7 +6,7 @@
 #    By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/01 18:16:17 by yzakharc          #+#    #+#              #
-#    Updated: 2017/05/02 22:53:47 by yzakharc         ###   ########.fr        #
+#    Updated: 2017/05/04 15:43:44 by yzakharc         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,6 +20,8 @@ SRC =	data_record.c			\
 		important_functions.c	\
 		ft_for_lib.c			\
 		support_ft.c			\
+		precision.c				\
+		width.c					\
 
 OBJ = $(SRC:.c=.o)
 
@@ -39,3 +41,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+norm:
+	norminette *.c *.h

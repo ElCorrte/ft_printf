@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 13:31:35 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/04/06 13:31:36 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/04 15:52:12 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ typedef struct	s_pf
 	char		*f_l;
 	char		c;
 	char		spcr;
-	char		*s;
-	int 		sharp_true;
+	int			value;
+	int			sharp_true;
 	int			sharp;
 	int			zero;
 	int			dash;
+	int			dash_true;
+	int			pl_sp_true;
 	int			plus;
 	int			space;
 	int			width;
@@ -49,7 +51,7 @@ int				ft_printf(const char *format, ...);
 void			ft_itoa_dec(intmax_t value, t_pf *pf);
 void			itoa_hex_oct(uintmax_t value, t_pf *pf, int base, int x);
 int				len_value(intmax_t value);
-void			ft_check_sp(char sp, va_list *fm, t_pf *pf);
+int				ft_check_sp(char sp, va_list *fm, t_pf *pf);
 void			ft_mod_d_i(va_list *fm, t_pf *pf);
 void			ft_mod_other(va_list *fm, t_pf *pf, int key, int x);
 void			clean_all(t_pf *pf);
@@ -71,5 +73,10 @@ char			*ft_strnew(size_t size);
 void			ft_sharp(t_pf *pf);
 void			putstr_pf(char const *s, t_pf *pf);
 void			putchar_pf(char c, t_pf *pf);
+int				check_dot(t_pf *pf, const char **str, va_list *fm);
+void			create_dot(char *str, int dot, t_pf *pf);
+int				check_width(t_pf *pf, const char **str);
+void			print_width(int minus, t_pf *pf);
+void			ft_pl_sp(t_pf *pf);
 
 #endif
