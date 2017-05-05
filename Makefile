@@ -6,13 +6,13 @@
 #    By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/01 18:16:17 by yzakharc          #+#    #+#              #
-#    Updated: 2017/05/05 18:09:16 by yzakharc         ###   ########.fr        #
+#    Updated: 2017/05/05 18:15:15 by yzakharc         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
+NAME    =   libftprintf.a
 CC		=	gcc
 FLAGS	=	-Wall -Wextra -Werror
-NAME	=	libftprintf.a
 OBJ		=	data_record.o			\
 			ft_itoa_base.o			\
 			ft_printf.o				\
@@ -22,6 +22,8 @@ OBJ		=	data_record.o			\
 			support_ft.o			\
 			precision.o				\
 			width.o					\
+
+.PHONY: all clean fclean re norm
 
 all: $(NAME)
 
