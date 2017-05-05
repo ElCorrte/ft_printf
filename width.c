@@ -12,8 +12,14 @@
 
 #include "ft_printf.h"
 
-int		check_width(t_pf *pf, const char **str)
+int		check_width(t_pf *pf, const char **str, va_list *fm)
 {
+	if (**str == '*')
+	{
+		pf->width = va_arg(*fm, int);
+		(*str)++;
+		return (0);
+	}
 	pf->width = ft_atoi(*str);
 	pf->len_width = len_value(pf->width);
 	*str += pf->len_width;

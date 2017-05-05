@@ -76,7 +76,7 @@ void			putstr_pf(char const *s, t_pf *pf);
 void			putchar_pf(char c, t_pf *pf);
 int				check_dot(t_pf *pf, const char **str, va_list *fm);
 void			create_dot(char *str, int dot, t_pf *pf);
-int				check_width(t_pf *pf, const char **str);
+int				check_width(t_pf *pf, const char **str, va_list *fm);
 void			print_width(int minus, t_pf *pf);
 void			ft_pl_sp(t_pf *pf);
 

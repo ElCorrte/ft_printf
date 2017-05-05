@@ -55,8 +55,8 @@ int		ft_check_fl(const char **fl, t_pf *pf, va_list *fm)
 			return (skip_hh_ll(fl, pf));
 		**fl == 'j' ? pf->j = 1 : 0;
 		**fl == 'z' ? pf->z = 1 : 0;
-		if (ft_isdigit(**fl))
-			return (check_width(pf, fl));
+		if (ft_isdigit(**fl) || **fl == '*')
+			return (check_width(pf, fl, fm));
 		(*fl)++;
 	}
 	return (0);
@@ -93,7 +93,7 @@ int		ft_printf(const char *format, ...)
 	t_pf	pf;
 
 	pf.s_p = "sSpdDioOuUxXcC";
-	pf.f_l = "#0-+  .hljz123456789";
+	pf.f_l = "#0-+  .hljz123456789*";
 	pf.print_smb = 0;
 	va_start(fm, format);
 	how_mach = ft_check_form(format, &fm, &pf);
