@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 15:43:06 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/04 15:46:16 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:39:54 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,20 @@ int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 {
 	pf->spcr = sp;
 	(sp == 'i' || sp == 'd' || sp == 'D') ? ft_mod_d_i(fm, pf) : 0;
-	sp == 's' ? pf->str = va_arg(*fm, char *) : 0;
+	if (sp == 's')
+	{
+		pf->str = va_arg(*fm, char *);
+		pf->str == NULL ? pf->str = "(null)" : 0;
+	}
 	sp == 'c' || sp == 'C' ? pf->c = va_arg(*fm, int) : 0;
 	sp == 'p' ? ft_mod_other(fm, pf, 16, 39) : 0;
 	(sp == 'u' || sp == 'U') ? ft_mod_other(fm, pf, 10, 0) : 0;
 	(sp == 'o' || sp == 'O') ? ft_mod_other(fm, pf, 8, 0) : 0;
 	sp == 'x' ? ft_mod_other(fm, pf, 16, 39) : 0;
 	sp == 'X' ? ft_mod_other(fm, pf, 16, 7) : 0;
+	if ((pf->dot == -1 && pf->value == 0 && !pf->sharp) || \
+		(pf->sharp && pf->spcr == 'x' && pf->dot == -1 && pf->value == 0))
+		*pf->str = '\0';
 	use_flag(pf);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:27:48 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/04 15:48:54 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:39:19 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int		check_dot(t_pf *pf, const char **str, va_list *fm)
 	if (pf->dot != -1)
 	{
 		pf->len_dot = len_value(pf->dot);
-		pf->len_dot == 0 ? pf->len_dot++ : 0;
+		if (pf->len_dot == 0)
+		{
+			pf->len_dot++;
+			pf->dot = -1;
+		}
 		*str += pf->len_dot;
 	}
 	return (0);
@@ -28,8 +32,8 @@ int		check_dot(t_pf *pf, const char **str, va_list *fm)
 
 void	precision_for_s(char *str, int dot, t_pf *pf)
 {
-	int len;
-	char *dot_str;
+	int		len;
+	char	*dot_str;
 
 	if (pf->value == 0)
 	{

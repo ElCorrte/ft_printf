@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 15:50:13 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/04 15:48:12 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:37:20 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	clean_all(t_pf *pf)
 	pf->plus = 0;
 	pf->space = 0;
 	pf->width = 0;
+	pf->new_width = 0;
 	pf->len_width = 0;
 	pf->dot = 0;
 	pf->len_dot = 0;

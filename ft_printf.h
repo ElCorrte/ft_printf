@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 13:31:35 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/04 15:52:12 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:42:14 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_pf
 	int			plus;
 	int			space;
 	int			width;
+	int			new_width;
 	int			len_width;
 	int			dot;
 	int			len_dot;
