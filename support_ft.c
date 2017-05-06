@@ -28,7 +28,7 @@ void	putstr_pf(char const *s, t_pf *pf)
 
 void	ft_sharp(t_pf *pf)
 {
-	if (*pf->str != '0' && pf->dot != -1)
+	if ((*pf->str != '0' && pf->dot != -1) || pf->spcr == 'p')
 	{
 		(pf->spcr == 'o' || pf->spcr == 'O') ? putchar_pf('0', pf) : 0;
 		pf->spcr == 'x' || pf->spcr == 'p' ? putstr_pf("0x", pf) : 0;

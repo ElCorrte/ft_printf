@@ -41,7 +41,7 @@ void	ft_pl_sp(t_pf *pf)
 
 void	print_dash(t_pf *pf)
 {
-	pf->sharp == 1 ? ft_sharp(pf) : 0;
+	pf->sharp == 1 || pf->spcr == 'p' ? ft_sharp(pf) : 0;
 	pf->space == 1 || pf->plus == 1 ? ft_pl_sp(pf) : 0;
 	pf->str ? putstr_pf(pf->str, pf) : 0;
 	pf->c ? putchar_pf(pf->c, pf) : 0;
@@ -67,12 +67,13 @@ int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 {
 	pf->spcr = sp;
 	(sp == 'i' || sp == 'd' || sp == 'D') ? ft_mod_d_i(fm, pf) : 0;
-	if (sp == 's')
+	if (sp == 's' && pf->dot != -1)
 	{
 		pf->str = va_arg(*fm, char *);
 		pf->str == NULL ? pf->str = "(null)" : 0;
 	}
 	sp == 'c' || sp == 'C' ? pf->c = va_arg(*fm, int) : 0;
+	sp == 'b' ? ft_mod_other(fm, pf, 2, 0) : 0;
 	sp == 'p' ? ft_mod_other(fm, pf, 16, 39) : 0;
 	(sp == 'u' || sp == 'U') ? ft_mod_other(fm, pf, 10, 0) : 0;
 	(sp == 'o' || sp == 'O') ? ft_mod_other(fm, pf, 8, 0) : 0;
@@ -80,7 +81,10 @@ int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 	sp == 'X' ? ft_mod_other(fm, pf, 16, 7) : 0;
 	if ((pf->dot == -1 && pf->value == 0 && !pf->sharp) || \
 		(pf->sharp && pf->spcr == 'x' && pf->dot == -1 && pf->value == 0))
+	{
+		pf->str = ft_strnew(0);
 		*pf->str = '\0';
+	}
 	use_flag(pf);
 	return (0);
 }

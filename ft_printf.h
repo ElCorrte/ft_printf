@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 13:31:35 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/05 17:51:19 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/06 18:18:28 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_pf
 	char		*str;
 	char		*s_p;
 	char		*f_l;
+	char 		*is_int;
 	char		c;
 	char		spcr;
 	int			value;
@@ -46,6 +47,7 @@ typedef struct	s_pf
 	int			ll;
 	int			j;
 	int			z;
+	int 		no_mod;
 }				t_pf;
 
 int				ft_printf(const char *format, ...);

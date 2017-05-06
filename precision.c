@@ -6,11 +6,19 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:27:48 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/05 14:39:19 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/06 15:29:50 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_is_int(t_pf *pf)
+{
+	int	i;
+
+	pf->is_int = "pdDioOuUxXb";
+	return (i = ft_strchr(pf->is_int, pf->spcr) ? 1 : 0);
+}
 
 int		check_dot(t_pf *pf, const char **str, va_list *fm)
 {
@@ -43,6 +51,7 @@ void	precision_for_s(char *str, int dot, t_pf *pf)
 			dot_str[len] = str[len];
 		pf->str = ft_strdup(dot_str);
 	}
+	pf->dot = 0;
 }
 
 void	create_dot(char *str, int dot, t_pf *pf)
@@ -56,7 +65,7 @@ void	create_dot(char *str, int dot, t_pf *pf)
 	*str == '-' ? dot++ : 0;
 	end = *str == '-' ? 1 : 0;
 	len = dot;
-	if ((size_t)dot > i && i)
+	if ((size_t)dot > i && ft_is_int(pf))
 	{
 		dot_str = ft_strnew((size_t)dot);
 		while (dot-- > 0)
@@ -67,7 +76,6 @@ void	create_dot(char *str, int dot, t_pf *pf)
 			str[i - 1] == '-' ? i = 0 : 0;
 		}
 		*str == '-' ? dot_str[0] = '-' : 0;
-		ft_strdel(&pf->str);
 		pf->str = ft_strdup(dot_str);
 	}
 	pf->spcr == 's' ? precision_for_s(pf->str, pf->dot, pf) : 0;

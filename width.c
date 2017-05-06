@@ -12,6 +12,18 @@
 
 #include "ft_printf.h"
 
+int		len_for_width(t_pf *pf)
+{
+	int	i;
+
+	i = 0;
+	if (pf->str)
+		i = (int)ft_strlen(pf->str);
+	else if (pf->c || pf->c == 0)
+		i = 1;
+	return (i);
+}
+
 int		check_width(t_pf *pf, const char **str, va_list *fm)
 {
 	if (**str == '*')
@@ -34,11 +46,12 @@ void	print_width(int minus, t_pf *pf)
 	(pf->space == 1 || pf->plus == 1) && *pf->str != '-' ? pf->new_width-- : 0;
 	pf->width = 0;
 	pf->new_width -= minus;
-	if (pf->sharp)
+	if (pf->sharp || pf->spcr == 'p')
 	{
 		pf->zero && !pf->sharp_true ? ft_sharp(pf) : 0;
 		(pf->spcr == 'o' || pf->spcr == 'O') ? pf->new_width -= 1 : 0;
-		(pf->spcr == 'x' || pf->spcr == 'X') ? pf->new_width -= 2 : 0;
+		if (pf->spcr == 'x' || pf->spcr == 'X' || pf->spcr == 'p')
+			pf->new_width -= 2;
 	}
 	if (pf->str && *pf->str == '-' && !pf->dash && pf->zero != 0)
 	{
