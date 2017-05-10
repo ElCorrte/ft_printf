@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 15:43:06 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/05 14:39:54 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 16:40:19 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ void	print_dash(t_pf *pf)
 	pf->sharp == 1 || pf->spcr == 'p' ? ft_sharp(pf) : 0;
 	pf->space == 1 || pf->plus == 1 ? ft_pl_sp(pf) : 0;
 	pf->str ? putstr_pf(pf->str, pf) : 0;
-	pf->c ? putchar_pf(pf->c, pf) : 0;
+	if (pf->spcr == 'c')
+		putchar_pf(pf->c, pf);
+	else
+		pf->c ? putchar_pf(pf->c, pf) : 0;
 	(pf->width > pf->dot) ? print_width(len_for_width(pf), pf) : 0;
 	pf->dash_true = 1;
 }

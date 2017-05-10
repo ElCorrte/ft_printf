@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 22:50:38 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/04 15:49:27 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:11:47 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	putstr_pf(char const *s, t_pf *pf)
 
 void	ft_sharp(t_pf *pf)
 {
+	pf->spcr == 'o' && pf->value > 0 ? pf->dot = 0 : 0;
 	if ((*pf->str != '0' && pf->dot != -1) || pf->spcr == 'p')
 	{
 		(pf->spcr == 'o' || pf->spcr == 'O') ? putchar_pf('0', pf) : 0;

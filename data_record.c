@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 15:50:13 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/05 14:37:20 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 17:41:44 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_check_smb(const char *str, t_pf *pf)
 void	clean_all(t_pf *pf)
 {
 	pf->c = 0;
-	pf->spcr = 0;
+	pf->spcr = 1;
 	pf->sharp_true = 0;
 	pf->sharp = 0;
 	pf->zero = 0;
@@ -50,6 +50,7 @@ void	clean_all(t_pf *pf)
 	pf->j = 0;
 	pf->z = 0;
 	pf->no_mod = 0;
+	pf->str_itoa = 0;
 }
 
 void	ft_mod_d_i(va_list *fm, t_pf *pf)
@@ -65,6 +66,7 @@ void	ft_mod_d_i(va_list *fm, t_pf *pf)
 	pf->no_mod && pf->spcr == 'D' ? ft_itoa_dec(va_arg(*fm, long), pf) : 0;
 	!*pf->str ? ft_itoa_dec(va_arg(*fm, int), pf) : 0;
 	pf->value = ft_atoi(pf->str);
+	pf->str_itoa = 1;
 }
 
 void	ft_mod_other(va_list *fm, t_pf *pf, int key, int x)
@@ -81,4 +83,5 @@ void	ft_mod_other(va_list *fm, t_pf *pf, int key, int x)
 		itoa_hex_oct(va_arg(*fm, unsigned long), pf, key, x);
 	!*pf->str ? itoa_hex_oct(va_arg(*fm, unsigned int), pf, key, x) : 0;
 	pf->value = ft_atoi(pf->str);
+	pf->str_itoa = 1;
 }

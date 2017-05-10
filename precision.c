@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:27:48 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/06 15:29:50 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 17:34:28 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,29 @@
 
 int		ft_is_int(t_pf *pf)
 {
-	int	i;
+	int		i;
+	char	*c;
 
 	pf->is_int = "pdDioOuUxXb";
-	return (i = ft_strchr(pf->is_int, pf->spcr) ? 1 : 0);
+	c = ft_strchr(pf->is_int, pf->spcr);
+	i = !c ? 0 : 1;
+	return (i);
 }
 
 int		check_dot(t_pf *pf, const char **str, va_list *fm)
 {
 	(*str)++;
 	pf->dot = ft_isdigit(**str) ? ft_atoi(*str) : -1;
-	**str == '*' ? pf->dot = va_arg(*fm, int) : 0;
+	if (**str == '*')
+	{
+		pf->dot = va_arg(*fm, int);
+		if (pf->dot < 0)
+		{
+			pf->dot = 0;
+			(*str)++;
+			return (0);
+		}
+	}
 	if (pf->dot != -1)
 	{
 		pf->len_dot = len_value(pf->dot);

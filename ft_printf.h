@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 13:31:35 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/06 18:26:41 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 17:35:06 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 typedef struct		s_pf
 {
 	char			*str;
+	int				str_itoa;
 	char			*s_p;
 	char			*f_l;
 	char			*is_int;
-	unsigned char	c;
+	int				c;
 	char			spcr;
 	int				value;
 	int				sharp_true;
