@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+int		print_n(va_list *fm, t_pf *pf)
+{
+	int *n;
+
+	n = va_arg(*fm, void *);
+	*n = pf->print_smb;
+	return (0);
+}
+
 void	ft_pl_sp(t_pf *pf)
 {
 	if (pf->spcr == 'i' || pf->spcr == 'd')
@@ -69,6 +78,8 @@ void	use_flag(t_pf *pf)
 int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 {
 	pf->spcr = sp;
+	if (pf->spcr == 'n')
+		return (print_n(fm, pf));
 	(sp == 'i' || sp == 'd' || sp == 'D') ? ft_mod_d_i(fm, pf) : 0;
 	if (sp == 's' && pf->dot != -1)
 	{
