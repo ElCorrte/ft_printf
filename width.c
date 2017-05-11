@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:32:47 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/10 18:14:08 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 19:21:11 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		len_for_width(t_pf *pf)
 	int	i;
 
 	i = 0;
-	if (pf->str)
+	if (pf->str && pf->spcr != 'c')
 		i = (int)ft_strlen(pf->str);
 	else if (pf->c || pf->c == 0)
 		i = 1;
@@ -73,7 +73,7 @@ void	print_width(int minus, t_pf *pf)
 	if (pf->str && *pf->str == '-' && !pf->dash && pf->zero != 0)
 	{
 		putchar_pf('-', pf);
-		pf->str++;
+		pf->plus_one = 1;
 	}
 	pf->new_width > 0 ? print_width_rev1(pf) : 0;
 }

@@ -32,7 +32,7 @@ void	ft_itoa_dec(intmax_t value, t_pf *pf)
 	intmax_t	c;
 
 	i = len_value(value);
-	pf->str = ft_strnew((size_t)i);
+	pf->str = ft_strnew((size_t)i, pf);
 	value == 0 ? pf->str[0] = '0' : 0;
 	value < 0 ? pf->str[0] = '-' : 0;
 	while (value != 0)
@@ -64,7 +64,7 @@ void	itoa_hex_oct(uintmax_t value, t_pf *pf, int base, int x)
 	uintmax_t	c;
 
 	i = len_value_hex_oct(value, base);
-	pf->str = ft_strnew((size_t)i);
+	pf->str = ft_strnew((size_t)i, pf);
 	value == 0 ? pf->str[0] = '0' : 0;
 	while (value != 0)
 	{

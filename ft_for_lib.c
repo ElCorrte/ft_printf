@@ -66,7 +66,7 @@ char	*ft_strdup(const char *str)
 	return (dest);
 }
 
-char	*ft_strnew(size_t size)
+char	*ft_strnew(size_t size, t_pf *pf)
 {
 	char	*s;
 	size_t	len;
@@ -77,5 +77,6 @@ char	*ft_strnew(size_t size)
 	while (size--)
 		*s++ = '\0';
 	*s = '\0';
+	pf->str_clean = 1;
 	return (s - len);
 }

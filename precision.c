@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:27:48 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/10 17:34:28 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 20:36:10 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	precision_for_s(char *str, int dot, t_pf *pf)
 	if (pf->value == 0)
 	{
 		len = -1;
-		dot_str = ft_strnew((size_t)dot);
+		dot_str = ft_strnew((size_t)dot, pf);
 		while (++len < dot)
 			dot_str[len] = str[len];
 		pf->str = ft_strdup(dot_str);
@@ -79,7 +79,7 @@ void	create_dot(char *str, int dot, t_pf *pf)
 	len = dot;
 	if ((size_t)dot > i && ft_is_int(pf))
 	{
-		dot_str = ft_strnew((size_t)dot);
+		dot_str = ft_strnew((size_t)dot, pf);
 		while (dot-- > 0)
 			dot_str[dot] = '0';
 		while (--len > end && i)

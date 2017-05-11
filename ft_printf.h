@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 13:31:35 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/10 17:35:06 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/11 14:36:41 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct		s_pf
 {
 	char			*str;
-	int				str_itoa;
+	int				str_clean;
 	char			*s_p;
 	char			*f_l;
 	char			*is_int;
@@ -49,6 +49,7 @@ typedef struct		s_pf
 	int				j;
 	int				z;
 	int				no_mod;
+	int				plus_one;
 }					t_pf;
 
 int					ft_printf(const char *format, ...);
@@ -69,11 +70,10 @@ void				ft_trunk(t_pf *pf);
 int					ft_isdigit(int c);
 char				*ft_strchr(const char *s, int c);
 size_t				ft_strlen(const char *str);
-char				*ft_strnew(size_t size);
 int					ft_atoi(const char *str);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *str);
-char				*ft_strnew(size_t size);
+char				*ft_strnew(size_t size, t_pf *pf);
 void				ft_sharp(t_pf *pf);
 void				putstr_pf(char const *s, t_pf *pf);
 void				putchar_pf(char c, t_pf *pf);

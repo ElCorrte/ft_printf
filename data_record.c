@@ -20,9 +20,8 @@ void	no_mod(t_pf *pf)
 
 void	ft_check_smb(const char *str, t_pf *pf)
 {
-	pf->str = ft_strnew(1);
-	pf->str[0] = *str;
-	pf->str[1] = '\0';
+	pf->spcr = 'c';
+	pf->c = *str;
 	use_flag(pf);
 }
 
@@ -50,12 +49,13 @@ void	clean_all(t_pf *pf)
 	pf->j = 0;
 	pf->z = 0;
 	pf->no_mod = 0;
-	pf->str_itoa = 0;
+	pf->str_clean = 0;
+	pf->plus_one = 0;
 }
 
 void	ft_mod_d_i(va_list *fm, t_pf *pf)
 {
-	pf->str = ft_strnew(0);
+	pf->str = ft_strnew(0, pf);
 	no_mod(pf);
 	pf->hh == 1 ? ft_itoa_dec((signed char)va_arg(*fm, int), pf) : 0;
 	pf->h == 1 ? ft_itoa_dec((short)va_arg(*fm, int), pf) : 0;
@@ -66,12 +66,12 @@ void	ft_mod_d_i(va_list *fm, t_pf *pf)
 	pf->no_mod && pf->spcr == 'D' ? ft_itoa_dec(va_arg(*fm, long), pf) : 0;
 	!*pf->str ? ft_itoa_dec(va_arg(*fm, int), pf) : 0;
 	pf->value = ft_atoi(pf->str);
-	pf->str_itoa = 1;
+	pf->str_clean = 1;
 }
 
 void	ft_mod_other(va_list *fm, t_pf *pf, int key, int x)
 {
-	pf->str = ft_strnew(0);
+	pf->str = ft_strnew(0, pf);
 	no_mod(pf);
 	pf->hh == 1 ? itoa_hex_oct((unsigned char)va_arg(*fm, int), pf, key, x) : 0;
 	pf->h == 1 ? itoa_hex_oct((unsigned short)va_arg(*fm, int), pf, key, x) : 0;
@@ -83,5 +83,5 @@ void	ft_mod_other(va_list *fm, t_pf *pf, int key, int x)
 		itoa_hex_oct(va_arg(*fm, unsigned long), pf, key, x);
 	!*pf->str ? itoa_hex_oct(va_arg(*fm, unsigned int), pf, key, x) : 0;
 	pf->value = ft_atoi(pf->str);
-	pf->str_itoa = 1;
+	pf->str_clean = 1;
 }

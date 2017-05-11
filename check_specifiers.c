@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 15:43:06 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/10 16:40:19 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/11 12:17:27 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ void	use_flag(t_pf *pf)
 		print_width(len_for_width(pf), pf);
 	(!pf->sharp_true && (pf->sharp == 1 || pf->spcr == 'p')) ? ft_sharp(pf) : 0;
 	(pf->plus == 1 || pf->space == 1) ? ft_pl_sp(pf) : 0;
-	!pf->dash_true ? putstr_pf(pf->str, pf) : 0;
+	if (!pf->dash_true && pf->spcr != 'c')
+	{
+		pf->plus_one ? putstr_pf((pf->str + 1), pf) : putstr_pf(pf->str, pf);
+		pf->str_clean == 1 ? ft_strdel(&pf->str) : 0;
+	}
 	if (pf->spcr == 'c' || pf->spcr == 'C')
 		!pf->dash_true ? putchar_pf(pf->c, pf) : 0;
 }
@@ -86,6 +90,7 @@ int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 		pf->str = va_arg(*fm, char *);
 		pf->str == NULL ? pf->str = "(null)" : 0;
 	}
+	sp == 's' && pf->dot == -1 ? pf->str = ft_strnew(0, pf) : 0;
 	sp == 'c' || sp == 'C' ? pf->c = va_arg(*fm, int) : 0;
 	sp == 'b' ? ft_mod_other(fm, pf, 2, 0) : 0;
 	sp == 'p' ? ft_mod_other(fm, pf, 16, 39) : 0;
@@ -95,10 +100,8 @@ int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 	sp == 'X' ? ft_mod_other(fm, pf, 16, 7) : 0;
 	if ((pf->dot == -1 && pf->value == 0 && !pf->sharp) || \
 		(pf->sharp && pf->spcr == 'x' && pf->dot == -1 && pf->value == 0))
-	{
-		pf->str = ft_strnew(0);
 		*pf->str = '\0';
-	}
+	pf->dot == -1 && pf->width > 0 && pf->spcr != 'd' ? pf->dot = 0 : 0;
 	use_flag(pf);
 	return (0);
 }

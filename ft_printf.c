@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 13:31:20 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/06 18:27:06 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/10 20:39:58 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		ft_printf(const char *format, ...)
 	int		how_mach;
 	t_pf	pf;
 
-	pf.s_p = "spdDioOuUxXcC";
+	pf.s_p = "spdDioOuUxXcCn";
 	pf.f_l = "#0-+  .hljz123456789*";
 	pf.print_smb = 0;
 	va_start(fm, format);
