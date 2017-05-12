@@ -52,14 +52,12 @@ void	print_dash(t_pf *pf)
 {
 	pf->sharp == 1 || pf->spcr == 'p' ? ft_sharp(pf) : 0;
 	pf->space == 1 || pf->plus == 1 ? ft_pl_sp(pf) : 0;
-	if (pf->str)
-		putstr_pf(pf->str, pf);
+	pf->str ? putstr_pf(pf->str, pf) : 0;
 	if (pf->spcr == 'c')
 		putchar_pf(pf->c, pf);
 	else
 		pf->c ? putchar_pf(pf->c, pf) : 0;
 	(pf->width > pf->dot) ? print_width(len_for_width(pf), pf) : 0;
-	pf->str_clean == 1 ? ft_strdel(&pf->str) : 0;
 	pf->dash_true = 1;
 }
 
@@ -84,15 +82,14 @@ void	use_flag(t_pf *pf)
 int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 {
 	pf->spcr = sp;
-	clear_flag(pf);
 	if (pf->spcr == 'n')
 		return (print_n(fm, pf));
-	if (pf->spcr == 'S')
-		print_wchar(fm, pf);
 	(sp == 'i' || sp == 'd' || sp == 'D') ? ft_mod_d_i(fm, pf) : 0;
 	if (sp == 's' && pf->dot != -1)
-		if (!(pf->str = va_arg(*fm, char *)))
-			pf->str = "(null)";
+	{
+		pf->str = va_arg(*fm, char *);
+		pf->str == NULL ? pf->str = "(null)" : 0;
+	}
 	sp == 's' && pf->dot == -1 ? pf->str = ft_strnew(0, pf) : 0;
 	sp == 'c' || sp == 'C' ? pf->c = va_arg(*fm, int) : 0;
 	sp == 'b' ? ft_mod_other(fm, pf, 2, 0) : 0;
