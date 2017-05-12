@@ -27,6 +27,7 @@ void	ft_check_smb(const char *str, t_pf *pf)
 
 void	clean_all(t_pf *pf)
 {
+	pf->str = NULL;
 	pf->c = 0;
 	pf->spcr = 1;
 	pf->sharp_true = 0;
@@ -51,7 +52,6 @@ void	clean_all(t_pf *pf)
 	pf->no_mod = 0;
 	pf->str_clean = 0;
 	pf->plus_one = 0;
-	pf->printed_width = 0;
 }
 
 void	ft_mod_d_i(va_list *fm, t_pf *pf)

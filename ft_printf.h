@@ -50,7 +50,6 @@ typedef struct		s_pf
 	int				z;
 	int				no_mod;
 	int				plus_one;
-	int				printed_width;
 }					t_pf;
 
 int					ft_printf(const char *format, ...);

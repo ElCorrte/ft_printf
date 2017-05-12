@@ -59,6 +59,7 @@ void	precision_s(char *str, int dot, t_pf *pf)
 	{
 		len = -1;
 		dot_str = ft_strnew((size_t)dot, pf);
+		dot_str[dot] = '\0';
 		while (++len < dot)
 			dot_str[len] = str[len];
 		pf->str = ft_strdup(dot_str);
