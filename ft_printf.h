@@ -39,6 +39,7 @@ typedef struct		s_pf
 	int				width;
 	int				new_width;
 	int				len_width;
+	int				printed_width;
 	int				dot;
 	int				len_dot;
 	int				print_smb;
@@ -82,5 +83,7 @@ void				create_dot(char *str, int dot, t_pf *pf);
 int					check_width(t_pf *pf, const char **str, va_list *fm);
 void				print_width(int minus, t_pf *pf);
 void				ft_pl_sp(t_pf *pf);
+void				clear_flag(t_pf *pf);
+void				print_wchar(va_list *fm, t_pf *pf);
 
 #endif

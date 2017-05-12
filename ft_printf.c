@@ -97,7 +97,8 @@ int		ft_printf(const char *format, ...)
 	pf.print_smb = 0;
 	va_start(fm, format);
 	how_mach = ft_check_form(format, &fm, &pf);
-	clean_all(&pf);
 	va_end(fm);
+	pf.str_clean == 1 ? ft_strdel(&pf.str) : 0;
+	clean_all(&pf);
 	return (how_mach);
 }

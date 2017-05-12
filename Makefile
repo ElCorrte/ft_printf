@@ -6,7 +6,7 @@
 #    By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/01 18:16:17 by yzakharc          #+#    #+#              #
-#    Updated: 2017/05/05 18:15:15 by yzakharc         ###   ########.fr        #
+#    Updated: 2017/05/12 20:13:47 by yzakharc         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,6 +22,7 @@ OBJ		=	data_record.o			\
 			support_ft.o			\
 			precision.o				\
 			width.o					\
+			print_wchar.o			\
 
 .PHONY: all clean fclean re norm
 
@@ -40,7 +41,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 norm:
 	norminette *.c *.h

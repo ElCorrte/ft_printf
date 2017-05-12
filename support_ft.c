@@ -12,6 +12,13 @@
 
 #include "ft_printf.h"
 
+void	clear_flag(t_pf *pf)
+{
+	if (pf->spcr != 88 && pf->spcr != 120 && pf->spcr != 111 && pf->spcr != 79)
+		pf->sharp = 0;
+	pf->space == 1 && pf->plus == 1 ? pf->space = 0 : 0;
+}
+
 void	putchar_pf(char c, t_pf *pf)
 {
 	write(1, &c, 1);
