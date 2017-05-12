@@ -6,7 +6,7 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:38:53 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/12 16:38:54 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/05/12 21:59:56 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*add_to_string(char *str, char symb)
 {
 	size_t	len;
-	char 	*res;
-	int 	i;
+	char	*res;
+	int		i;
 
 	len = ft_strlen(str) + 1;
 	res = (char*)malloc(sizeof(char) * (len + 1));
@@ -52,7 +52,7 @@ void	print_four_bytes(int tmp, int *i, t_pf *pf)
 	pf->printed_width += 4;
 }
 
-void 	print_three_bytes(int tmp, int *i, t_pf *pf)
+void	print_three_bytes(int tmp, int *i, t_pf *pf)
 {
 	tmp = *i >> 6 * 2;
 	tmp |= 224;
@@ -68,7 +68,7 @@ void 	print_three_bytes(int tmp, int *i, t_pf *pf)
 	pf->printed_width += 3;
 }
 
-void 	print_two_bytes(int tmp, int *i, t_pf *pf)
+void	print_two_bytes(int tmp, int *i, t_pf *pf)
 {
 	tmp = *i >> 6;
 	tmp |= 192;
@@ -80,7 +80,7 @@ void 	print_two_bytes(int tmp, int *i, t_pf *pf)
 	pf->printed_width += 2;
 }
 
-void 	print_wchar(va_list *fm, t_pf *pf)
+void	print_wchar(va_list *fm, t_pf *pf)
 {
 	int	*i;
 	int	tmp;

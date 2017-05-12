@@ -62,6 +62,7 @@ void	precision_s(char *str, int dot, t_pf *pf)
 		while (++len < dot)
 			dot_str[len] = str[len];
 		pf->str = ft_strdup(dot_str);
+		ft_strdel(&dot_str);
 	}
 	pf->dot = 0;
 }
@@ -89,6 +90,8 @@ void	create_dot(char *str, int dot, t_pf *pf)
 		}
 		*str == '-' ? dot_str[0] = '-' : 0;
 		pf->str = ft_strdup(dot_str);
+		ft_strdel(&dot_str);
+		ft_strdel(&str);
 	}
 	pf->spcr == 's' || pf->spcr == 'S' ? precision_s(pf->str, pf->dot, pf) : 0;
 }

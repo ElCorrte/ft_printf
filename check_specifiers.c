@@ -58,6 +58,7 @@ void	print_dash(t_pf *pf)
 	else
 		pf->c ? putchar_pf(pf->c, pf) : 0;
 	(pf->width > pf->dot) ? print_width(len_for_width(pf), pf) : 0;
+	pf->str_clean == 1 ? ft_strdel(&pf->str) : 0;
 	pf->dash_true = 1;
 }
 
