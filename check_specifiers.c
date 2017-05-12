@@ -85,11 +85,10 @@ int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 	if (pf->spcr == 'n')
 		return (print_n(fm, pf));
 	(sp == 'i' || sp == 'd' || sp == 'D') ? ft_mod_d_i(fm, pf) : 0;
+	pf->spcr == 'S' ? print_wchar(fm, pf) : 0;
 	if (sp == 's' && pf->dot != -1)
-	{
-		pf->str = va_arg(*fm, char *);
-		pf->str == NULL ? pf->str = "(null)" : 0;
-	}
+		if (!(pf->str = va_arg(*fm, char *)))
+			pf->str = "(null)";
 	sp == 's' && pf->dot == -1 ? pf->str = ft_strnew(0, pf) : 0;
 	sp == 'c' || sp == 'C' ? pf->c = va_arg(*fm, int) : 0;
 	sp == 'b' ? ft_mod_other(fm, pf, 2, 0) : 0;

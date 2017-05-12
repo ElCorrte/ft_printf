@@ -92,7 +92,7 @@ int		ft_printf(const char *format, ...)
 	int		how_mach;
 	t_pf	pf;
 
-	pf.s_p = "spdDioOuUxXcCn";
+	pf.s_p = "sSpdDioOuUxXcCnb";
 	pf.f_l = "#0-+  .hljz123456789*";
 	pf.print_smb = 0;
 	va_start(fm, format);

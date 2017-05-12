@@ -50,6 +50,7 @@ typedef struct		s_pf
 	int				z;
 	int				no_mod;
 	int				plus_one;
+	int 			printed_width;
 }					t_pf;
 
 int					ft_printf(const char *format, ...);
@@ -82,5 +83,6 @@ void				create_dot(char *str, int dot, t_pf *pf);
 int					check_width(t_pf *pf, const char **str, va_list *fm);
 void				print_width(int minus, t_pf *pf);
 void				ft_pl_sp(t_pf *pf);
+void				print_wchar(va_list *fm, t_pf *pf);
 
 #endif

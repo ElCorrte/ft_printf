@@ -50,7 +50,7 @@ int		check_dot(t_pf *pf, const char **str, va_list *fm)
 	return (0);
 }
 
-void	precision_for_s(char *str, int dot, t_pf *pf)
+void	precision_s(char *str, int dot, t_pf *pf)
 {
 	int		len;
 	char	*dot_str;
@@ -90,5 +90,5 @@ void	create_dot(char *str, int dot, t_pf *pf)
 		*str == '-' ? dot_str[0] = '-' : 0;
 		pf->str = ft_strdup(dot_str);
 	}
-	pf->spcr == 's' ? precision_for_s(pf->str, pf->dot, pf) : 0;
+	pf->spcr == 's' || pf->spcr == 'S' ? precision_s(pf->str, pf->dot, pf) : 0;
 }

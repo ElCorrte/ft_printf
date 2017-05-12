@@ -51,6 +51,7 @@ void	clean_all(t_pf *pf)
 	pf->no_mod = 0;
 	pf->str_clean = 0;
 	pf->plus_one = 0;
+	pf->printed_width = 0;
 }
 
 void	ft_mod_d_i(va_list *fm, t_pf *pf)
