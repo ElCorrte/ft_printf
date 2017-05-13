@@ -83,5 +83,6 @@ int					check_width(t_pf *pf, const char **str, va_list *fm);
 void				print_width(int minus, t_pf *pf);
 void				ft_pl_sp(t_pf *pf);
 void				print_wchar(va_list *fm, t_pf *pf);
+void				clear_flag(t_pf *pf);
 
 #endif

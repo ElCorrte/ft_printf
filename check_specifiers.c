@@ -83,6 +83,7 @@ void	use_flag(t_pf *pf)
 int		ft_check_sp(char sp, va_list *fm, t_pf *pf)
 {
 	pf->spcr = sp;
+	clear_flag(pf);
 	if (pf->spcr == 'n')
 		return (print_n(fm, pf));
 	(sp == 'i' || sp == 'd' || sp == 'D') ? ft_mod_d_i(fm, pf) : 0;

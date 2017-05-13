@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+void	clear_flag(t_pf *pf)
+{
+	char *c;
+
+	c = "XxOop";
+	if (!ft_strchr(c, pf->spcr))
+		pf->sharp = 0;
+}
+
 void	putchar_pf(char c, t_pf *pf)
 {
 	write(1, &c, 1);
