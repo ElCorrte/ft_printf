@@ -6,18 +6,34 @@
 /*   By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 22:50:38 by yzakharc          #+#    #+#             */
-/*   Updated: 2017/05/10 18:11:47 by yzakharc         ###   ########.fr       */
+/*   Updated: 2017/06/05 20:07:02 by yzakharc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	clear_flag(t_pf *pf)
+void	remove_unnecessary(t_pf *pf)
 {
-	char *c;
+	int len;
 
-	c = "XxOop";
-	if (!ft_strchr(c, pf->spcr))
+	pf->space == 1 && pf->plus == 1 ? pf->space = 0 : 0;
+	if (pf->dot == -1 && pf->value == 0)
+		if (pf->sharp != 1 || (pf->sharp == 1 && pf->spcr == 'x'))
+			*pf->str = '\0';
+	if (pf->spcr == 'x' || pf->spcr == 'X' || pf->spcr == 'u' ||\
+			pf->spcr == 'U' || pf->spcr == 'o' || pf->spcr == 'O')
+	{
+		pf->space = 0;
+		pf->plus = 0;
+		pf->value == 0 ? pf->sharp = 0 : 0;
+	}
+	if (pf->spcr == 'o' || pf->spcr == 'O')
+	{
+		len = len_value(pf->value);
+		len < pf->dot ? pf->sharp = 0 : 0;
+	}
+	if (pf->spcr != 'x' && pf->spcr != 'X' && pf->spcr != 'p' &&\
+			pf->spcr != 'o' && pf->spcr != 'O')
 		pf->sharp = 0;
 }
 
@@ -33,12 +49,15 @@ void	putstr_pf(char const *s, t_pf *pf)
 		return ;
 	while (*s++)
 		putchar_pf(*(s - 1), pf);
+	pf->spcr == 'c' && *pf->str == 0 ? putchar_pf(0, pf) : 0;
 }
 
 void	ft_sharp(t_pf *pf)
 {
 	pf->spcr == 'o' && pf->value > 0 ? pf->dot = 0 : 0;
-	if ((*pf->str != '0' && pf->dot != -1) || pf->spcr == 'p')
+	if ((*pf->str != '0' && pf->dot != -1) || pf->spcr == 'p' ||\
+			pf->spcr == 'o' || pf->spcr == 'O' || pf->spcr == 'x'\
+			|| pf->spcr == 'X')
 	{
 		(pf->spcr == 'o' || pf->spcr == 'O') ? putchar_pf('0', pf) : 0;
 		pf->spcr == 'x' || pf->spcr == 'p' ? putstr_pf("0x", pf) : 0;
@@ -47,4 +66,23 @@ void	ft_sharp(t_pf *pf)
 	}
 	else
 		return ;
+}
+
+intmax_t	ft_atoi_pf(const char *str)
+{
+	intmax_t	b;
+	int			d;
+
+	b = 0;
+	while (ft_isspace(*str) == 1)
+		str++;
+	d = (*str == '-' ? -1 : 1);
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= 48 && *str <= 57)
+	{
+		b = b * 10 + (*str - '0');
+		str++;
+	}
+	return (b * d);
 }

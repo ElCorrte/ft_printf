@@ -12,6 +12,23 @@
 
 #include "ft_printf.h"
 
+int 	zero_space_plus(t_pf *pf)
+{
+	if (pf->zero == 1 && pf->width > 0 && *pf->str != '-' && pf->plus == 1)
+	{
+		putchar_pf('+', pf);
+		pf->width--;
+		return (0);
+	}
+	if (pf->zero == 1 && pf->width > 0 && *pf->str != '-' && pf->space == 1)
+	{
+		putchar_pf(' ', pf);
+		pf->width--;
+		return (0);
+	}
+	return (0);
+}
+
 void	ft_trunk_1(t_pf *pf)
 {
 	if (pf->ll == 1)
@@ -49,32 +66,17 @@ void	ft_trunk(t_pf *pf)
 	ft_trunk_1(pf);
 }
 
-int		ft_isdigit(int c)
+char	*strnew_pf(size_t size, t_pf *pf)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
-}
+	char	*s;
+	size_t	len;
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	count;
-
-	if (str == NULL)
-		return (0);
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	if ((char)c == '\0')
-		return ((char *)s + ft_strlen(s));
-	while (*s)
-		if ((*s == (char)c) || (*(++s) == (char)c))
-			return ((char *)s);
-	return (NULL);
+	len = size;
+	if (!(s = (char *)malloc((size + 1) * sizeof(*s))))
+		return (NULL);
+	while (size--)
+		*s++ = '\0';
+	*s = '\0';
+	pf->str_clean = 1;
+	return (s - len);
 }

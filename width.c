@@ -37,7 +37,7 @@ int		check_width(t_pf *pf, const char **str, va_list *fm)
 		(*str)++;
 		return (0);
 	}
-	pf->width = ft_atoi(*str);
+	pf->width = ft_atoi_pf(*str);
 	pf->len_width = len_value(pf->width);
 	*str += pf->len_width;
 	return (0);
@@ -48,7 +48,7 @@ void	print_width_rev1(t_pf *pf)
 	while (pf->new_width != 0)
 	{
 		if (!pf->dash)
-			pf->zero && !pf->dot ? putchar_pf('0', pf) : putchar_pf(' ', pf);
+			pf->zero == 1 && pf->dot <= 0 ? putchar_pf('0', pf) : putchar_pf(' ', pf);
 		else
 			putchar_pf(' ', pf);
 		pf->new_width--;
@@ -57,10 +57,7 @@ void	print_width_rev1(t_pf *pf)
 
 void	print_width(int minus, t_pf *pf)
 {
-	if (!pf->space || pf->zero == 1)
-		(pf->zero == 1 && pf->plus == 1) || pf->space == 1 ? ft_pl_sp(pf) : 0;
 	pf->new_width = pf->width;
-	(pf->space == 1 || pf->plus == 1) && *pf->str != '-' ? pf->new_width-- : 0;
 	pf->width = 0;
 	pf->new_width -= minus;
 	if (pf->sharp || pf->spcr == 'p')

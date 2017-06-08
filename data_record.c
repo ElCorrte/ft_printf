@@ -18,10 +18,32 @@ void	no_mod(t_pf *pf)
 		pf->no_mod = 1;
 }
 
-void	ft_check_smb(const char *str, t_pf *pf)
+void	ft_check_smb(int s, t_pf *pf)
 {
+	int *i;
+	int tmp;
+
 	pf->spcr = 'c';
-	pf->c = *str;
+	tmp = 0;
+	i = &s;
+	pf->str = strnew_pf(1, pf);
+	if (*i < 128)
+	{
+		tmp = *i;
+		pf->str = add_to_string(pf->str, (char)tmp);
+	}
+	if (*i > 255 && *i < 2048)
+	{
+		tmp = *i >> 6;
+		tmp |= 192;
+		pf->str = add_to_string(pf->str, (char)tmp);
+		tmp = *i;
+		tmp &= 63;
+		tmp |= 128;
+		pf->str = add_to_string(pf->str, (char)tmp);
+	}
+	*i >= 2048 && *i < 65536 ? print_three_bytes(0, i, pf) : 0;
+	*i >= 65546 && *i < 2097152 ? print_four_bytes(0, i, pf) : 0;
 	use_flag(pf);
 }
 
@@ -52,13 +74,14 @@ void	clean_all(t_pf *pf)
 	pf->no_mod = 0;
 	pf->str_clean = 0;
 	pf->plus_one = 0;
+	pf->cnt = 0;
 }
 
 void	ft_mod_d_i(va_list *fm, t_pf *pf)
 {
 	char *c;
 
-	pf->str = ft_strnew(0, pf);
+	pf->str = strnew_pf(0, pf);
 	c = pf->str;
 	no_mod(pf);
 	pf->hh == 1 ? ft_itoa_dec((signed char)va_arg(*fm, int), pf) : 0;
@@ -70,14 +93,14 @@ void	ft_mod_d_i(va_list *fm, t_pf *pf)
 	pf->no_mod && pf->spcr == 'D' ? ft_itoa_dec(va_arg(*fm, long), pf) : 0;
 	!*pf->str ? ft_itoa_dec(va_arg(*fm, int), pf) : 0;
 	ft_strdel(&c);
-	pf->value = ft_atoi(pf->str);
+	pf->value = ft_atoi_pf(pf->str);
 }
 
 void	ft_mod_other(va_list *fm, t_pf *pf, int key, int x)
 {
 	char *c;
 
-	pf->str = ft_strnew(0, pf);
+	pf->str = strnew_pf(0, pf);
 	c = pf->str;
 	no_mod(pf);
 	pf->hh == 1 ? itoa_hex_oct((unsigned char)va_arg(*fm, int), pf, key, x) : 0;
@@ -90,5 +113,5 @@ void	ft_mod_other(va_list *fm, t_pf *pf, int key, int x)
 		itoa_hex_oct(va_arg(*fm, unsigned long), pf, key, x);
 	!*pf->str ? itoa_hex_oct(va_arg(*fm, unsigned int), pf, key, x) : 0;
 	ft_strdel(&c);
-	pf->value = ft_atoi(pf->str);
+	pf->value = ft_atoi_pf(pf->str);
 }

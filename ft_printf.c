@@ -12,9 +12,8 @@
 
 #include "ft_printf.h"
 
-int		skip_zero(const char **fl, t_pf *pf)
+int		skip_zero(const char **fl)
 {
-	**fl == '0' ? pf->zero = 1 : 0;
 	while (**fl == '0' && **fl)
 		(*fl)++;
 	return (0);
@@ -22,6 +21,18 @@ int		skip_zero(const char **fl, t_pf *pf)
 
 int		skip_hh_ll(const char **fl, t_pf *pf)
 {
+	if (**fl == 'h' && *(*fl + 1) != 'h')
+	{
+		pf->cnt++;
+		if (pf->cnt % 2 == 0)
+		{
+			pf->hh = 1;
+			pf->h = 0;
+		}
+		else
+			pf->h = 1;
+		(*fl)++;
+	}
 	if (**fl == 'h' && *(*fl + 1) == 'h')
 	{
 		pf->hh = 1;
@@ -39,15 +50,16 @@ int		ft_check_fl(const char **fl, t_pf *pf, va_list *fm)
 {
 	while (ft_strchr(pf->f_l, **fl) && **fl)
 	{
-		if (**fl == '0')
-			return (skip_zero(fl, pf));
+		if (**fl == '0' && (pf->zero = 1))
+			return (skip_zero(fl));
 		**fl == '#' ? pf->sharp = 1 : 0;
 		**fl == '-' ? pf->dash = 1 : 0;
 		**fl == '+' ? pf->plus = 1 : 0;
 		**fl == ' ' ? pf->space = 1 : 0;
 		if (**fl == '.')
 			return (check_dot(pf, fl, fm));
-		**fl == 'h' && *(*fl + 1) != 'h' ? pf->h = 1 : 0;
+		if (**fl == 'h' && *(*fl + 1) != 'h')
+			return (skip_hh_ll(fl, pf));
 		if (**fl == 'h' && *(*fl + 1) == 'h')
 			return (skip_hh_ll(fl, pf));
 		**fl == 'l' && *(*fl + 1) != 'l' ? pf->l = 1 : 0;
@@ -80,7 +92,7 @@ int		ft_check_form(const char *form, va_list *fm, t_pf *pf)
 		if (ft_strchr(pf->s_p, *form) && *form)
 			ft_check_sp(*form, fm, pf);
 		else
-			*form ? ft_check_smb(form, pf) : 0;
+			*form ? ft_check_smb(*form, pf) : 0;
 		*form ? form++ : 0;
 	}
 	return (pf->print_smb);

@@ -6,19 +6,19 @@
 #    By: yzakharc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/30 11:02:22 by yzakharc          #+#    #+#              #
-#    Updated: 2017/06/01 21:06:55 by yzakharc         ###   ########.fr        #
+#    Updated: 2017/05/31 16:24:28 by yzakharc         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME = libftprintf.a
+NAME = libft.a
 
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ :=	$(patsubst %.c,%.o,$(wildcard *.c))						\
-		$(patsubst %.c,%.o,$(wildcard libft/get_next_line/*.c))	\
-		$(patsubst %.c,%.o,$(wildcard libft/*.c))				\
+OBJ :=	$(patsubst %.c,%.o,$(wildcard *.c))					\
+		$(patsubst %.c,%.o,$(wildcard get_next_line/*.c))	\
+		$(patsubst %.c,%.o,$(wildcard ft_printf/*.c))		\
 
 all : $(NAME)
 
@@ -31,8 +31,8 @@ $(NAME) : $(OBJ)
 
 clean :
 	rm -rf *.o
-	rm -rf libft/get_next_line/*.o
-	rm -rf libft/*.o
+	rm -rf get_next_line/*.o
+	rm -rf ft_printf/*.o
 
 fclean: clean
 	rm -rf $(NAME)
